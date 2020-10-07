@@ -1,0 +1,93 @@
+nav{
+  font-family: sans-serif;
+}
+
+footer{
+  background-color: lightgrey;
+  text-align:center;
+  padding: 7px;
+  position: relative;
+  bottom: 0;
+  width: inherit;
+  margin: 5px;
+}
+
+img{
+  align-items:center;
+}
+
+main{
+  background-color: mintcream;
+}
+
+.pad{
+  padding:10px;
+}
+table{
+    border: 1px solid;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+td{
+    border: 1px solid;
+    text-align: center;
+    border-color: black;
+    padding: 5px;
+}
+th{
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+}
+thead{
+    background-color: darkred;
+    color: mintcream;
+}
+tr:nth-child(even){
+    background-color: lightgray;
+}
+tbody>tr:hover{
+    background-color: indianred;
+}
+tfoot{
+    background-color: dimgrey;
+    color: mintcream;
+    padding: 5px;
+}
+#DropDown:hover{
+  background-color: dimgrey;
+}
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 0.4;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
+}
