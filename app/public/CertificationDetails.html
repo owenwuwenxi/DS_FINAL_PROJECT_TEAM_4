@@ -7,23 +7,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css\style.css">
+        <link rel="stylesheet" href="css\style.css">
     <!-- my custom CSS goes here -->
 
-    <title>Home Page</title>
+    <title>Certifications</title>
   </head>
   <body>
-    <div class="container">
-      <header class="row">
-        <div class="col-12">
+    <header class="row">
+      <h1>Oconee County Fire Rescue</h1>
+    </header>
 
-         
-         <h1> Welcome To The OCFR Home Page! </h1>
-        </div>
-      </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="userProfile">
       <a class="navbar-brand" href="index.html"></a>
-
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -33,33 +28,57 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="member_list.html" id="DropDown">Members<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="table.html" id="DropDown">Members<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cert_list.html" id="DropDown">Certifications</a>
+            <a class="nav-link" href="about.html" id="DropDown">Certifications</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="reports.html" id="DropDown">Records</a>
+            <a class="nav-link" href="about.html" id="DropDown">Records</a>
           </li>
         </ul>
       </div>
     </nav>
-	
-	<p> Oconee County Fire Rescue (OCFR) is a mostly volunteer organization in Oconee County, GA.
-	 We are here to protect, and serve the community of Oconee County! </p>
-
-    <main class="row">
-      <div class="col-12">
-        <a href="img\Spain.jpg" target="_blank"><img class="pad" src="img\Spain.jpg" height=400></a>
-      </div>
-        <div class="row">
-          Pic Source:<a href="https://www.fodors.com/world/europe/spain/experiences/news/ultimate-things-to-do-in-spain">Fodors.com</a>
-        </div>
-    </main>
-      <footer class="row">
-        Oconee County Fire Rescue - 2020 Contact us @----
-      </footer>
+    <h1>Certification Details</h1>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Expiration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <form>
+      <button type="submit" class="btn btn-primary">add</button>
+      <button type="submit" class="btn btn-primary">edit</button>
+      <button type="submit" class="btn btn-primary">delete</button>
+    </form>
+
     <!-- END content -->
 
     <!-- Footer? Insert here -->
@@ -69,6 +88,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="js/tablesort.min.js"></script>
+    <script>
+      // Tablesort plugin from http://tristen.ca/tablesort/demo/
+      new Tablesort(document.getElementById('books'));
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="js/profile.app.js"></script>
