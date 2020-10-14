@@ -1,15 +1,17 @@
 nav{
   font-family: sans-serif;
+  background-color: crimson;
 }
 
 footer{
-  background-color: lightgrey;
+  background-color:darkred;
   text-align:center;
   padding: 7px;
   position: relative;
   bottom: 0;
   width: inherit;
   margin: 5px;
+  color:white;
 }
 
 img{

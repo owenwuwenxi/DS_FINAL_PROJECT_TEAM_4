@@ -33,6 +33,24 @@ var app = new Vue ({
         this.userDOB = userData.dob.date;
         console.log('user country' + userData.location.country);
       });
-    }
-  }
-})
+      this.newPtForm = this.newPtData();
+        },
+        handleTriageForm( evt ) {
+          console.log("Form submitted!");
+
+          this.triageForm.pt = this.activePt;
+          console.log(this.triageForm);
+
+        }
+      },
+      created() {
+        fetch("api/records/")
+        .then( response => response.json() )
+        .then( json => {
+          this.ptList = json;
+
+          console.log(json)}
+        );
+        this.newPtForm = this.newPtData();
+      }
+    })
