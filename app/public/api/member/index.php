@@ -9,19 +9,19 @@ $db = DbConnection::getConnection();
 $sql = 'SELECT * FROM MemberTable';
 $vars = [];
 
-if (isset($_GET['guid'])) {
+if (isset($_GET['memberID'])) {
   // This is an example of a parameterized query
   $sql = 'SELECT * FROM MemberTable WHERE memberID = ?';
-  $vars = [ $_GET['guid'] ];
+  $vars = [ $_GET['memberID'] ];
 }
 
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$patients = $stmt->fetchAll();
+$MemberTable = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($MemberTable, JSON_PRETTY_PRINT);
+$json = json_encode($memberID, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');
