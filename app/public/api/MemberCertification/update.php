@@ -26,8 +26,8 @@ $stmt = $db->prepare(
 
 $stmt->execute([
   #$guid,
-  #?
-  #$_POST['firstName'],
+  $_POST['memberID'],
+  $_POST['certificationID'],
   $_POST['renewedDate'],
   $_POST['expirationDate'],
 ]);
