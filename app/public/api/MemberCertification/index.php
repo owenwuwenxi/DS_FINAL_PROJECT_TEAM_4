@@ -6,13 +6,14 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT * FROM MemberCertification';
+$sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification';
 $vars = [];
+#May not be Now(), but it's that idea
 
-if (isset($_GET['guid'])) {
+if (isset($_GET['mcID'])) {
   // This is an example of a parameterized query
-  $sql = 'SELECT * FROM MemberCertification WHERE patientGuid = ?';
-  $vars = [ $_GET['guid'] ];
+  $sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification WHERE mcID = ?';
+  $vars = [ $_GET['mcID'] ];
 }
 #?
 
