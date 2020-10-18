@@ -1,6 +1,28 @@
+/* natural box model */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 nav{
   font-family: sans-serif;
   background-color: crimson;
+    /* margin set to separate each navbar so you can better see all examples */
+  margin: 0 0 3.0em;
+  /* I used flexbox to have menu items sit next to each other, but in a*/
+  display: flex;
+  flex-flow: row wrap;
+}
+ body {
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: #EDEBEB;
+  color: #4A3C31;
+  padding: 30px;
+  
+
 }
 
 footer{
@@ -15,8 +37,12 @@ footer{
 }
 
 img{
-  align-items:center;
-}
+ 
+    width: 100%
+    
+  }
+
+
 
 main{
   background-color: mintcream;
@@ -93,3 +119,71 @@ th[role=columnheader]:not(.no-sort):hover:after {
 	visibility: visible;
 	opacity: 1;
 }
+
+button {
+        background-color: #990000;
+        border: 3px solid #990000;
+        border-radius: 20px;
+        color: #EDEBEB;
+        padding: 0.5em 1.0em;
+        margin: 1.0em 2.0em 0;
+        display: inline-block;
+        font-size: 18px;
+        letter-spacing: 1px;
+        transition: background-color .2s ease-out,color .2s ease-out,border-color .18s ease-out;
+    }
+    
+button:hover {
+        /* background-color: transparent; */
+        background: #EDEBEB;
+        color: #990000;
+}
+
+    
+section {
+      height: 450px;
+      position: relative;
+}
+    
+    
+        
+    .feature {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: #4A3C31;
+      position: relative;
+      z-index: 10;
+}
+
+    .one-half {
+      flex: 1;
+}
+	
+    .feature-text {
+    font-size: 22px
+      padding: 2.0em 3.0em 2.0em 2.0em;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-evenly;
+
+
+    
+      
+}
+
+article {
+margin: 0 auto;
+display: flex;
+flex-wrap: wrap;
+padding: 5px;
+background: radial-gradient(circle, rgba(255,255,255,1) 0%, #ffc09f 35%, rgba(237,235,235,1) 100%); 
+
+
+
+}
+
+
+  
