@@ -1,5 +1,5 @@
 FROM php:7.4-apache
-
+<<<<<< owu
 LABEL maintainer="Tom Gregory"
 
 COPY app /srv/app
@@ -28,3 +28,11 @@ RUN composer install \
     --no-plugins \
     --no-scripts \
     --prefer-dist
+======
+LABEL maintainer="Team 4"
+
+COPY app /srv/app
+
+COPY docker/apache/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+>>>>>> main
