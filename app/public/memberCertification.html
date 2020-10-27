@@ -50,13 +50,11 @@
       <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
+            <th>Member ID</th>
             <th>Certification ID</th>
-            <th>Certifying Agency</th>
-            <th>Certification Name</th>
-            <th>standardExpiry</th>
+            <th>Renewed Date</th>
+            <th>Expiration Date</th>
           </tr>
-
-
         </thead>
         <tbody id="memberCertificationTableBody">
           <tr id="memberCertifications" v-for="memberCertification in mcList">
@@ -64,7 +62,6 @@
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
-            <td class="expired">{{memberCertification.expired}}</td>
           </tr>
 
         </tbody>

@@ -7,7 +7,7 @@ var mcApp = new Vue ({
       certificationID:'',
       renewedDate:'',
       expirationDate:'',
-      mcID:''
+      expired:''
     }],
 
     newMC:{
@@ -15,7 +15,7 @@ var mcApp = new Vue ({
       certificationID:'',
       renewedDate:'',
       expirationDate:'',
-      mcID:''
+      expired:''
     },
   },
 
@@ -54,7 +54,7 @@ var mcApp = new Vue ({
         certificationID:'',
         renewedDate:'',
         expirationDate:'',
-        mcID:''
+        expired:''
       }
     }
   },
