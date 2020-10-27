@@ -36,6 +36,6 @@ $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.ph
 // Step 4: Output
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
-?mcID=' . $pk';
+//?mcID=' . $pk';
 header('HTTP/1.1 303 See Other');
-header('Location: ../MemberCertification/?=.$pk');
+header('Location: ../memberCertification);
