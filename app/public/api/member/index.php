@@ -21,7 +21,7 @@ $stmt->execute($vars);
 $MemberTable = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($memberID, JSON_PRETTY_PRINT);
+$json = json_encode($MemberTable, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');

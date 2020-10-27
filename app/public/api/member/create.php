@@ -24,7 +24,7 @@ $stmt->execute([
   $_POST['preferredEmail']
   $_POST['dob'],
   $_POST['startDate'],
-  $_POST['gender']
+  $_POST['gender'],
   $_POST['dPosition']
 ]);
 
