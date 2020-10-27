@@ -47,40 +47,23 @@
     </nav>
     <h1>Certification Details</h1>
     <div class="container">
-      <table class="table">
+      <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Expiration</th>
+            <th>Member ID</th>
+            <th>Certification ID</th>
+            <th>Renewed Date</th>
+            <th>Expiration Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tbody id="memberCertificationTableBody">
+          <tr id="memberCertifications" v-for="memberCertification in mcList">
+            <td class="memberID">{{memberCertification.memberID}}</td>
+            <td class="certificationID">{{memberCertification.certificationID}}</td>
+            <td class="renewedDate">{{memberCertification.renewedDate}}</td>
+            <td class="expirationDate">{{memberCertification.expirationDate}}</td>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+
         </tbody>
       </table>
     </div>
@@ -106,6 +89,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/profile.app.js"></script>
+    <script src="js/memberCertification.app.js"></script>
   </body>
 </html>
