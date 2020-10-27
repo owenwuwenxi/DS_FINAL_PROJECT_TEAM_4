@@ -2,6 +2,11 @@ CREATE DATABASE OCFR_TEAM4;
 
 USE OCFR_TEAM4;
 
+DROP TABLE IF EXISTS MemberCertification;
+DROP TABLE IF EXISTS MemberTable;
+DROP TABLE IF EXISTS Certification;
+DROP TABLE IF EXISTS User;
+
 CREATE TABLE MemberTable(
 
 memberID INT(5) PRIMARY KEY,
@@ -64,7 +69,7 @@ expirationDate CHAR(8) NOT NULL
 
 
 
-CREATE TABLE User (
+CREATE TABLE UserTable (
 
 email VARCHAR(255) PRIMARY KEY,
 
@@ -117,25 +122,25 @@ INSERT INTO Certification (certificationID, certifyingAgency, certificationName,
 
 
 
-INSERT INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate, expired) VALUES
+INSERT INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate) VALUES
 
-(00001, 44444, "08/2018", "08/2020", 1),
+(00001, 44444, "08/2018", "08/2020"),
 
- (00001, 22222, "07/2017", "07/2019", 1),
+ (00001, 22222, "07/2017", "07/2019"),
 
- (00001, 66666, "05/2016", "02/2020", 1),
+ (00001, 66666, "05/2016", "02/2020"),
 
- (00002, 77777, "09/2020", "09/2025", 1),
+ (00002, 77777, "09/2020", "09/2025"),
 
- (00002, 11111, "07/2019", "07/2021", 0),
+ (00002, 11111, "07/2019", "07/2021"),
 
- (00003, 11111, "07/2020", "07/2022", 1),
+ (00003, 11111, "07/2020", "07/2022"),
 
-(00003, 33333, "08/2020", "08/2023", 1);
+(00003, 33333, "08/2020", "08/2023");
 
 
 
-INSERT INTO User (email, user_Password) VALUES
+INSERT INTO UserTable (email, user_Password) VALUES
 
 ("jjohn@ocfire.com", "iamjohn"),
 

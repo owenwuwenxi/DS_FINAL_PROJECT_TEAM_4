@@ -7,7 +7,7 @@ var app = new Vue ({
     userImageThumb:'',
     userAge:'',
     userOrigin:'',
-    userDOB:'',
+    userDOB:''
   },
 
   created(){

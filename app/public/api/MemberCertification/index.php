@@ -20,10 +20,10 @@ if (isset($_GET['mcID'])) {
 $stmt = $db->prepare($sql);
 $stmt->execute($vars);
 
-$patients = $stmt->fetchAll();
+$mc = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($patients, JSON_PRETTY_PRINT);
+$json = json_encode($mc, JSON_PRETTY_PRINT);
 #?
 
 // Step 4: Output
