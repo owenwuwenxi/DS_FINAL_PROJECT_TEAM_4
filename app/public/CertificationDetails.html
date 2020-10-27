@@ -47,7 +47,7 @@
     </nav>
     <h1>Certification Details</h1>
     <div class="container">
-      <table class="table" id="memberCertificationTable">
+      <table class="table" id="certificationTable">
         <thead>
           <tr>
             <th>Certification ID</th>
@@ -58,8 +58,8 @@
 
 
         </thead>
-        <tbody id="memberCertificationTableBody">
-          <tr id="memberCertifications" v-for="memberCertification in mcList">
+        <tbody id="certificationTableBody">
+          <tr id="certifications" v-for="memberCertification in mcList">
             <td class="memberID">{{memberCertification.memberID}}</td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
