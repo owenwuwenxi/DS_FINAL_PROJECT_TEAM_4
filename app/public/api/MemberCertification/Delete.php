@@ -20,8 +20,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'DELETE FROM MemberCertification (mcID)
-  VALUES (?)'
+  'DELETE FROM MemberCertification WHERE mcID=? '
 );
 
 $stmt->execute([
@@ -40,4 +39,4 @@ $stmt->execute([
 // just in case the data changed by entering it
 //?mcID=' . $pk
 header('HTTP/1.1 303 See Other');
-header('Location: ../MemberCertification');
+header('Location: ../memberCertification');
