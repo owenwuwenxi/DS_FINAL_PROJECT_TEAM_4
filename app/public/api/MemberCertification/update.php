@@ -20,8 +20,9 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate)
-  VALUES (?, ?, ?, ?)'
+  'UPDATE MemberCertification (memberID, certificationID, renewedDate, expirationDate)
+  VALUES (?, ?, ?, ?)
+  WHERE mcID=?'
 );
 
 $stmt->execute([
@@ -29,7 +30,7 @@ $stmt->execute([
   $_POST['memberID'],
   $_POST['certificationID'],
   $_POST['renewedDate'],
-  $_POST['expirationDate'],
+  $_POST['expirationDate']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -40,4 +41,4 @@ $stmt->execute([
 // just in case the data changed by entering it
 //?mcID=' . $pk
 header('HTTP/1.1 303 See Other');
-header('Location: ../MemberCertification');
+header('Location: ../memberCertification/');

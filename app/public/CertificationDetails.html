@@ -39,6 +39,9 @@
           <li class="nav-item active">
             <a class="nav-link" href="CertificationDetails.html" id="DropDown">Certification Details</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="reports.html" id="DropDown">Reports</a>
           </li>
@@ -47,40 +50,25 @@
     </nav>
     <h1>Certification Details</h1>
     <div class="container">
-      <table class="table">
+      <table class="table" id="certificationTable">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Expiration</th>
+            <th>Certification ID</th>
+            <th>Certifying Agency</th>
+            <th>Certification Name</th>
+            <th>standardExpiry</th>
           </tr>
+
+
         </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tbody id="certificationTableBody">
+          <tr id="certifications" v-for="certification in cert_list">
+            <td class="certificationID">{{certification.certificationID}}</td>
+            <td class="certifyingAgency">{{certification.certifyingAgency}}</td>
+            <td class="certificationName">{{memberCertification.certificationName}}</td>
+            <td class="standardExpiry">{{memberCertification.standardExpiry}}</td>
           </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+
         </tbody>
       </table>
     </div>
@@ -99,13 +87,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="js/tablesort.min.js"></script>
-    <script>
-      // Tablesort plugin from http://tristen.ca/tablesort/demo/
-      new Tablesort(document.getElementById('books'));
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/profile.app.js"></script>
+    <script src="js/memberCertification.app.js"></script>
   </body>
 </html>
