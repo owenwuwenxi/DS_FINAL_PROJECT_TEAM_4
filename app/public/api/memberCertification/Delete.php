@@ -25,10 +25,10 @@ $stmt = $db->prepare(
 
 $stmt->execute([
   #$guid,
-  $_POST['memberID'],
-  $_POST['certificationID'],
-  $_POST['renewedDate'],
-  $_POST['expirationDate']
+  #$_POST['memberID'],
+  #$_POST['certificationID'],
+  #$_POST['renewedDate'],
+  #$_POST['expirationDate']
 ]);
 
 // If needed, get auto-generated PK from DB
