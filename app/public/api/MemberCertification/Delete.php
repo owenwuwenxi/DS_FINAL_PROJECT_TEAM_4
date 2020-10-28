@@ -24,11 +24,7 @@ $stmt = $db->prepare(
 );
 
 $stmt->execute([
-  #$guid,
-  $_POST['memberID'],
-  $_POST['certificationID'],
-  $_POST['renewedDate'],
-  $_POST['expirationDate']
+  $_POST['mcID']
 ]);
 
 // If needed, get auto-generated PK from DB
@@ -39,4 +35,4 @@ $stmt->execute([
 // just in case the data changed by entering it
 //?mcID=' . $pk
 header('HTTP/1.1 303 See Other');
-header('Location: ../memberCertification');
+header('Location: ../memberCertification/');
