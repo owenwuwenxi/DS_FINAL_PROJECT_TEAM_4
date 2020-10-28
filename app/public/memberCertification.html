@@ -49,7 +49,7 @@
       </div>
     </nav>
     <h1>Certification Details</h1>
-    <div class="container">
+    <div class="container" id="memberCertification">
       <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
@@ -58,25 +58,29 @@
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
-          <tr id="memberCertifications" v-for="memberCertification in mcList">
+          <tr v-for="memberCertification in mcList">
             <td class="memberID">{{memberCertification.memberID}}</td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
             <td class="expired">{{memberCertification.expired}}</td>
+            <td class="deleteTd">
+              <button class="btn btn-small btn-danger" v-on:click="deleteMc(memberCertification.mcID)">Delete</button>
+            </td>
           </tr>
 
         </tbody>
       </table>
+      <form>
+        <input>
+        <button type="submit" class="btn btn-primary">add</button>
+      </form>
     </div>
-    <form>
-      <button type="submit" class="btn btn-primary">add</button>
-      <button type="submit" class="btn btn-primary">edit</button>
-      <button type="submit" class="btn btn-primary">delete</button>
-    </form>
+
 
     <!-- END content -->
 
