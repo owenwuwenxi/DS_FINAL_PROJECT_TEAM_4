@@ -39,4 +39,4 @@ $stmt->execute([
 // just in case the data changed by entering it
 //?mcID=' . $pk
 header('HTTP/1.1 303 See Other');
-header('Location: ../memberCertification');
+header('Location: ../memberCertification/');
