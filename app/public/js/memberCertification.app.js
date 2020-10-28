@@ -2,13 +2,7 @@ var mcApp = new Vue ({
   el: '#memberCertification',
   data: {
 
-    mcList:[{
-      memberID:'',
-      certificationID:'',
-      renewedDate:'',
-      expirationDate:'',
-      expired:''
-    }],
+    mcList:[],
 
     newMC:{
       memberID:'',
@@ -47,7 +41,20 @@ var mcApp = new Vue ({
       console.log("Creating (POSTing)...!");
       console.log(this.newMC);
     },
-
+    deleteMc(mcID) {
+      fetch('api/memberCertification/delete.php',{
+        method:'POST',
+        body: JSON.stringify({"mcID":mcID}),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        this.mcList = json;
+        //do the right stuff here
+    });
+    },
     newMCData(){
       return {
         memberID:'',
