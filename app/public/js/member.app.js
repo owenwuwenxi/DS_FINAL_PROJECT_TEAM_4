@@ -1,23 +1,10 @@
 var mcApp = new Vue ({
-  el: '#memberCertification',
+  el: '#member',
   data: {
 
-    mcList:[{
-      memberID:'',
-      firstName:'',
-      lastName:'',
-      radioNumber:'',
-      stationNumber:'',
-      isActive:'',
-      address:'',
-      preferredEmail:'',
-      dob:'',
-      startDate:'',
-      gender:'',
-      dPosition:'',
-    }],
+    mbrList:[],
 
-    newMC:{
+    newMbr:{
       memberID:'',
       firstName:'',
       lastName:'',
@@ -39,15 +26,15 @@ var mcApp = new Vue ({
       fetch('api/member/')
       .then( response => response.json() )
       .then( json => {
-        this.mcList = json;
-        console.log(this.mcList);
+        this.mbrList = json;
+        console.log(this.mbrList);
       });
       },
 
       createdMemberCertification(){
         fetch('api/member/create.php',{
           method:'POST',
-          body: JSON.stringify(this.newMC),
+          body: JSON.stringify(this.newMbr),
           headers:{
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -55,14 +42,15 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList.push(json[0]);
-          this.newMC = this.newMCData();
+          this.brList.push(json[0]);
+          this.newMbr = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
-      console.log(this.newMC);
+      console.log(this.newMbr);
     },
 
-    newMCData(){
+
+    newMbrData(){
       return {
         memberID:'',
         firstName:'',
