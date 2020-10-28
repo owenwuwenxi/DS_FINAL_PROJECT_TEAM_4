@@ -53,8 +53,8 @@
 
     <h1>Certifications</h1>
 
-    <div id="CertificationsId">
-      <table id="certificationTable" class="table">
+    <div id="certificationTable" >
+      <table class="table">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -63,8 +63,8 @@
             <th scope="col">Standard Expiry</th>
           </tr>
         </thead>
-        <tbody id="certificationTableBody">
-          <tr id="Certifications" v-for="certification in certifications">
+        <tbody >
+          <tr v-for="certification in certifications">
             <td>{{ certification.certificationID }}</td>
             <td>{{ certification.certifyingAgency }}</td>
             <td>{{ certification.certificationName }}</td>
@@ -77,7 +77,7 @@
 
       <form method="post" v-on:submit.prevent="createCertification()" id="newCertificationForm">
         <div class="certifications">
-          <textarea id="certificationText" v-model="newCertification.certificationText" class="form-control" rows="3"></textarea>
+          <textarea v-model="newCertification.certificationText" class="form-control" rows="3"></textarea>
         </div>
         <br/>
         <input type="submit" value="Create Certification" class="button" id="submitNewCertification">

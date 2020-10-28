@@ -1,12 +1,8 @@
 var certificationApp = new Vue({
-  el: '#Certification',
+  el: '#certificationTable',
   data: {
-    certifications: [{
-      certficationID: '',
-      certifyingAgency: '',
-      certificationName: '',
-      standardExpiry: ''
-  }],
+    certifications: [],
+    
   newCertification: {
     certficationID: '',
     certifyingAgency: '',
