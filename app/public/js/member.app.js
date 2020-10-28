@@ -4,25 +4,39 @@ var mcApp = new Vue ({
 
     mcList:[{
       memberID:'',
-      certificationID:'',
-      renewedDate:'',
-      expirationDate:'',
-      expired:''
+      firstName:'',
+      lastName:'',
+      radioNumber:'',
+      stationNumber:'',
+      isActive:'',
+      address:'',
+      preferredEmail:'',
+      dob:'',
+      startDate:'',
+      gender:'',
+      dPosition:'',
     }],
 
     newMC:{
       memberID:'',
-      certificationID:'',
-      renewedDate:'',
-      expirationDate:'',
-      expired:''
+      firstName:'',
+      lastName:'',
+      radioNumber:'',
+      stationNumber:'',
+      isActive:'',
+      address:'',
+      preferredEmail:'',
+      dob:'',
+      startDate:'',
+      gender:'',
+      dPosition:'',
     },
   },
 
 
   methods:{
-    fetchMemberCertification() {
-      fetch('api/memberCertification/')
+    fetchmember() {
+      fetch('api/member/')
       .then( response => response.json() )
       .then( json => {
         this.mcList = json;
@@ -31,7 +45,7 @@ var mcApp = new Vue ({
       },
 
       createdMemberCertification(){
-        fetch('api/memberCertification/create.php',{
+        fetch('api/member/create.php',{
           method:'POST',
           body: JSON.stringify(this.newMC),
           headers:{
@@ -51,15 +65,22 @@ var mcApp = new Vue ({
     newMCData(){
       return {
         memberID:'',
-        certificationID:'',
-        renewedDate:'',
-        expirationDate:'',
-        expired:''
+        firstName:'',
+        lastName:'',
+        radioNumber:'',
+        stationNumber:'',
+        isActive:'',
+        address:'',
+        preferredEmail:'',
+        dob:'',
+        startDate:'',
+        gender:'',
+        dPosition:'',
       }
     }
   },
 
       created() {
-        this.fetchMemberCertification();
+        this.fetchmember();
       }
     })
