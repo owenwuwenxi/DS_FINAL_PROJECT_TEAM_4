@@ -62,12 +62,11 @@
 
         </thead>
         <tbody id="certificationTableBody">
-          <tr id="certifications" v-for="memberCertification in mcList">
-            <td class="memberID">{{memberCertification.memberID}}</td>
-            <td class="certificationID">{{memberCertification.certificationID}}</td>
-            <td class="renewedDate">{{memberCertification.renewedDate}}</td>
-            <td class="expirationDate">{{memberCertification.expirationDate}}</td>
-            <td class="expired">{{memberCertification.expired}}</td>
+          <tr id="certifications" v-for="certification in cert_list">
+            <td class="certificationID">{{certification.certificationID}}</td>
+            <td class="certifyingAgency">{{certification.certifyingAgency}}</td>
+            <td class="certificationName">{{memberCertification.certificationName}}</td>
+            <td class="standardExpiry">{{memberCertification.standardExpiry}}</td>
           </tr>
 
         </tbody>
