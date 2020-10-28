@@ -1,8 +1,9 @@
 var certificationApp = new Vue({
   el: '#certificationTable',
   data: {
-    certifications: [],
-    
+
+    certList: [],
+
   newCertification: {
     certficationID: '',
     certifyingAgency: '',
@@ -15,8 +16,8 @@ methods: {
     fetch('api/certifications/')
     .then(response => response.json())
     .then(json => {
-      this.certfications=json;
-      console.log(this.certifications);
+      this.certList=json;
+      console.log(this.certList);
     });
   },
   createCertification(){
@@ -30,12 +31,28 @@ methods: {
     .then( response => response.json() )
     .then( json => {
       console.log("Returned from post:", json);
-      this.certifications.push(json[0]);
+      this.certList.push(json[0]);
       this.newCertification = this.newCertificationData();
     });
     console.log("Creating (POSTing)...!");
     console.log(this.newCertification);
   },
+  //delete method
+  deleteCert(certificationID) {
+    fetch('api/certifications/delete_cert.php',{
+      method:'POST',
+      body: JSON.stringify({"certificationID":certificationID}),
+      headers:{
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+    .then( response => response.json() )
+    .then( json => {
+      this.certList = json;
+      //do the right stuff here
+  });
+  },
+
   newCertificationData() {
     return {
       certficationID: '',

@@ -61,14 +61,18 @@
             <th scope="col">Agency</th>
             <th scope="col">Name</th>
             <th scope="col">Standard Expiry</th>
+            <th></th>
           </tr>
         </thead>
         <tbody >
-          <tr v-for="certification in certifications">
+          <tr v-for="certification in certList">
             <td>{{ certification.certificationID }}</td>
             <td>{{ certification.certifyingAgency }}</td>
             <td>{{ certification.certificationName }}</td>
             <td>{{ certification.standardExpiry }}</td>
+            <td class="deleteTd">
+              <button class="btn btn-small btn-danger" v-on:click="deleteCert(certification.certificationID)">Delete</button>
+            </td>
           </tr>
         </tbody>
       </table>
