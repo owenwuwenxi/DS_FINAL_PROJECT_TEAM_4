@@ -48,13 +48,14 @@
         </ul>
       </div>
     </nav>
-    <h1>Certification Details</h1>
+    <h1>Members' Certifications</h1>
     <div class="container" id="memberCertification">
       <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
-            <th>Member ID</th>
-            <th>Certification ID</th>
+            <th>Member First Name</th>
+            <th>Member Last Name</th>
+            <th>Certification Name</th>
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
@@ -63,7 +64,12 @@
         </thead>
         <tbody id="memberCertificationTableBody">
           <tr v-for="memberCertification in mcList">
-            <td class="memberID">{{memberCertification.memberID}}</td>
+            <td class="firstName" v-for="member in mbrList">
+              {{member.firstName}}
+            </td>
+            <td class="lastName" v-for="member in mbrList">
+              {{member.lastName}}
+            </td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
@@ -75,21 +81,30 @@
 
         </tbody>
       </table>
-      <form class="General" action="" method="get">
+      <form method="post">
         <fieldset>
             <legend>Add a Certification to a Member</legend>
 
-            <label for="MemberName">Member Name</label>
-            <select name="MemberName" id="MemberName" v-for="member in ">
-              <option>{{memberCertification.expired}}</option>
+            <label for="MemberFirstName">Member's First Name</label>
+            <select name="MemberFirstName" id="MemberFirstName" v-for="member in mbrList">
+              <option>{{member.firstName}}</option>
+            </select>
+            <br>
+
+            <label for="MemberLastName">Member's Last Name</label>
+            <select name="MemberLastName" id="MemberLastName" v-for="member in mbrList">
+              <option>{{member.lastName}}</option>
+            </select>
             <br>
 
             <label for="CertificationName">Certification Name</label>
-            <input type="text" name="CertificationName" id="CertificationName">
+            <select name="CertificationName" id="CertificationName" v-for="certification in certList">
+              <option>{{certification.certificationName}}</option>
+            </select>
             <br>
 
             <label for="RenewedDate">Renewed Date</label>
-            <input type="text" name="RenewedDate" id="RenewedDate">
+            <input type="text" class="form-control" name="RenewedDate" id="RenewedDate" v-model="" placeholder="08/2018">
             <br>
 
 
@@ -118,5 +133,7 @@
       new Tablesort(document.getElementById('memberCertificationTable'));
     </script>
     <script src="js/memberCertification.app.js"></script>
+    <script src="js/member.app.js"></script>
+    <script src="js/cert.app.js"></script>
   </body>
 </html>
