@@ -17,11 +17,11 @@ $stmt->execute([
   $_POST['memberID'],
   $_POST['firstName'],
   $_POST['lastName'],
-  $_POST['radioNumber']
+  $_POST['radioNumber'],
   $_POST['stationNumber'],
   $_POST['isActive'],
   $_POST['address'],
-  $_POST['preferredEmail']
+  $_POST['preferredEmail'],
   $_POST['dob'],
   $_POST['startDate'],
   $_POST['gender'],
@@ -35,4 +35,4 @@ $stmt->execute([
 // Here, instead of giving output, I'm redirecting to the SELECT API,
 // just in case the data changed by entering it
 header('HTTP/1.1 303 See Other');
-header('Location: ../member_list/);
+header('Location: ../member/');

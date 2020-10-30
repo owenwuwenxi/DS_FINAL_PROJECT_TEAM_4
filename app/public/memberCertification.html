@@ -60,13 +60,14 @@
         </ul>
       </div>
     </nav>
-    <h1>Certification Details</h1>
+    <h1>Members' Certifications</h1>
     <div class="container" id="memberCertification">
       <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
-            <th>Member ID</th>
-            <th>Certification ID</th>
+            <th>Member First Name</th>
+            <th>Member Last Name</th>
+            <th>Certification Name</th>
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
@@ -74,8 +75,9 @@
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
-          <tr v-for="memberCertification in mcList">
-            <td class="memberID">{{memberCertification.memberID}}</td>
+          <tr v-for="memberCertification in mbrNmcList">
+            <td class="firstName">{{memberCertification.firstName}}</td>
+            <td class="lastName">{{memberCertification.lastName}}</td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
@@ -87,21 +89,30 @@
 
         </tbody>
       </table>
-      <form class="General" action="" method="get">
+      <form method="post" v-for="memberCertification in mbrNmcList">
         <fieldset>
             <legend>Add a Certification to a Member</legend>
 
-            <label for="MemberName">Member Name</label>
-            <select name="MemberName" id="MemberName" v-for="member in ">
-              <option>{{memberCertification.expired}}</option>
+            <label for="MemberFirstName">Member's First Name</label>
+            <select name="MemberFirstName" id="MemberFirstName">
+              <option>{{memberCertification.firstName}}</option>
+            </select>
+            <br>
+
+            <label for="MemberLastName">Member's Last Name</label>
+            <select name="MemberLastName" id="MemberLastName">
+              <option>{{memberCertification.lastName}}</option>
+            </select>
             <br>
 
             <label for="CertificationName">Certification Name</label>
-            <input type="text" name="CertificationName" id="CertificationName">
+            <select name="CertificationName" id="CertificationName">
+              <option>{{memberCertification.certificationName}}</option>
+            </select>
             <br>
 
             <label for="RenewedDate">Renewed Date</label>
-            <input type="text" name="RenewedDate" id="RenewedDate">
+            <input type="text" class="form-control" name="RenewedDate" id="RenewedDate" v-model="" placeholder="08/2018">
             <br>
 
 
