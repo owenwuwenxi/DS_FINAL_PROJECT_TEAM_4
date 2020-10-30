@@ -64,11 +64,11 @@
         </thead>
         <tbody id="memberCertificationTableBody">
           <tr v-for="memberCertification in mcList">
-            <td class="firstName" v-for="member in mbrList">
-              {{member.firstName}}
+            <td class="firstName">
+               Owen
             </td>
-            <td class="lastName" v-for="member in mbrList">
-              {{member.lastName}}
+            <td class="lastName">
+               Wu
             </td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
@@ -86,19 +86,19 @@
             <legend>Add a Certification to a Member</legend>
 
             <label for="MemberFirstName">Member's First Name</label>
-            <select name="MemberFirstName" id="MemberFirstName" v-for="member in mbrList">
+            <select name="MemberFirstName" id="MemberFirstName">
               <option>{{member.firstName}}</option>
             </select>
             <br>
 
             <label for="MemberLastName">Member's Last Name</label>
-            <select name="MemberLastName" id="MemberLastName" v-for="member in mbrList">
+            <select name="MemberLastName" id="MemberLastName">
               <option>{{member.lastName}}</option>
             </select>
             <br>
 
             <label for="CertificationName">Certification Name</label>
-            <select name="CertificationName" id="CertificationName" v-for="certification in certList">
+            <select name="CertificationName" id="CertificationName">
               <option>{{certification.certificationName}}</option>
             </select>
             <br>
@@ -133,7 +133,5 @@
       new Tablesort(document.getElementById('memberCertificationTable'));
     </script>
     <script src="js/memberCertification.app.js"></script>
-    <script src="js/member.app.js"></script>
-    <script src="js/cert.app.js"></script>
   </body>
 </html>
