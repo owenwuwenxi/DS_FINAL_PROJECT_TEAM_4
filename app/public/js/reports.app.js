@@ -1,33 +1,36 @@
 var mcApp = new Vue ({
-  el: '#memberCertification',
+  el: '#reports',
   data: {
 
-    mcList:[],
+    reportList:[],
 
-    newMC:{
-      memberID:'',
-      certificationID:'',
-      renewedDate:'',
+    newReport:{
+      firstName:'',
+      lastName:'',
+      stationNumber:'',
+      radioNumber:'',
+      preferredEmail:'',
+      certificationName:'',
       expirationDate:'',
-      expired:''
+      isActive:''
     },
   },
 
 
   methods:{
-    fetchMemberCertification() {
-      fetch('api/memberCertification/')
+    fetchreports() {
+      fetch('api/reports/')
       .then( response => response.json() )
       .then( json => {
-        this.mcList = json;
-        console.log(this.mcList);
+        this.reportList = json;
+        console.log(this.reportList);
       });
       },
 
-      createdMemberCertification(){
-        fetch('api/memberCertification/create.php',{
+      createdreports(){
+        fetch('api/reports/create.php',{
           method:'POST',
-          body: JSON.stringify(this.newMC),
+          body: JSON.stringify(this.newReport),
           headers:{
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -35,14 +38,14 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList.push(json[0]);
-          this.newMC = this.newMCData();
+          this.reportList.push(json[0]);
+          this.newReport = this.newReportData();
       });
       console.log("Creating (POSTing)...!");
-      console.log(this.newMC);
+      console.log(this.newReport);
     },
-    deleteMc(mcID) {
-      fetch('api/memberCertification/delete.php',{
+    deleteMc(report) {
+      fetch('api/reports/delete.php',{
         method:'POST',
         body: JSON.stringify({"mcID":mcID}),
         headers:{
@@ -51,22 +54,22 @@ var mcApp = new Vue ({
       })
       .then( response => response.json() )
       .then( json => {
-        this.mcList = json;
+        this.reportList = json;
         //do the right stuff here
     });
     },
-    newMCData(){
+    newReportData(){
       return {
-        memberID:'',
-        certificationID:'',
-        renewedDate:'',
-        expirationDate:'',
-        expired:''
+        firstName:'',
+        lastName:'',
+        stationNumber:'',
+        radioNumber:'',
+        preferredEmail:''
       }
     }
   },
 
       created() {
-        this.fetchMemberCertification();
+        this.fetchreports();
       }
     })
