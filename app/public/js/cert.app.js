@@ -62,11 +62,17 @@ methods: {
         "Content-Type": "application/json; charset=utf-8"
       }
     })
-    .then( response => response.json() )
+    .then( response => {
+      if(response.status == 409 ){
+        alert("Can't delete");
+        return Promise.reject(new Error('Nope'));
+      }
+      return response.json() })
     .then( json => {
       this.certList = json;
       //do the right stuff here
-  });
+    })
+
   },
 //edit certification methods
 

@@ -27,17 +27,29 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="member_list.html" id="DropDown">Members<span class="sr-only">(current)</span></a>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Members
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="member_list.html">Member List</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="MemberDetails.html">Member Details</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="create_mbr.html">Create Member</a>
+             </div>
           </li>
-		  <li class="nav-item">
-		     <a class="nav-link" href="MemberDetails.html" id="DropDown">Member Details</a>
-          </li>
-		  <li class="nav-item">
-		     <a class="nav-link" href="cert_list.html" id="DropDown">Certifications</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="CertificationDetails.html" id="DropDown">Certification Details</a>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Certifications
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="cert_list.html">Certification List</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="CertificationDetails.html">Certification Details</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="create_cert.html">Create Certifications</a>
+             </div>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
@@ -69,7 +81,7 @@
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
             <td class="expired">{{memberCertification.expired}}</td>
             <td class="deleteTd">
-              <button class="btn btn-small btn-delete" v-on:click="deleteMC(memberCertification.mcID)">Delete</button>
+              <button class="btn btn-small btn-delete btn-secondary" v-on:click="deleteMC(memberCertification.mcID)">Delete</button>
             </td>
           </tr>
 
