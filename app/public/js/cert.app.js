@@ -5,7 +5,7 @@ var certificationApp = new Vue({
     certList: [],
 
   newCertification: {
-    certficationID: '',
+    certificationID: '',
     certifyingAgency: '',
     certificationName: '',
     standardExpiry: ''
@@ -37,7 +37,23 @@ methods: {
     console.log("Creating (POSTing)...!");
     console.log(this.newCertification);
   },
-  //delete method
+
+  //delete mc Certifications
+  deleteMC(mcID) {
+    fetch('api/memberCertification/delete.php',{
+      method:'POST',
+      body: JSON.stringify({"certificationID":certificationID}),
+      headers:{
+        "Content-Type": "application/json; charset=utf-8"
+      }
+    })
+    .then( response => response.json() )
+    .then( json => {
+      this.mcList = json;
+      //do the right stuff here
+  });
+  },
+  //delete certification method
   deleteCert(certificationID) {
     fetch('api/certifications/delete_cert.php',{
       method:'POST',
@@ -52,6 +68,8 @@ methods: {
       //do the right stuff here
   });
   },
+//edit certification methods
+  
 
   newCertificationData() {
     return {
