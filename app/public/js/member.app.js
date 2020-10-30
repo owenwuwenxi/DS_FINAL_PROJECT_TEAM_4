@@ -5,18 +5,11 @@ var mbrApp = new Vue ({
     mbrList:[],
 
     newMbr:{
-      memberID:'',
       firstName:'',
       lastName:'',
       radioNumber:'',
       stationNumber:'',
-      isActive:'',
-      address:'',
       preferredEmail:'',
-      dob:'',
-      startDate:'',
-      gender:'',
-      dPosition:'',
     },
   },
 
@@ -31,7 +24,7 @@ var mbrApp = new Vue ({
       });
       },
 
-      createdMemberCertification(){
+      createdMember(){
         fetch('api/member/create.php',{
           method:'POST',
           body: JSON.stringify(this.newMbr),

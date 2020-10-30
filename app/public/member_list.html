@@ -76,11 +76,11 @@
         <tbody >
 
           <tr v-for="member in mbrList">
-            <td>{{ member.firstName}}</td>
-            <td>{{ member.lastName}}</td>
-            <td>{{ member.preferredEmail }}</td>
-            <td>{{ member.radioNumber }}</td>
-            <td>{{ member.stationNumber }}</td>
+          <td class="firstName">{{ member.firstName}}</td>
+          <td class="lastName">{{ member.lastName}}</td>
+          <td class="preferredEmail">{{ member.preferredEmail }}</td>
+          <td class="radioNumber">{{ member.radioNumber }}</td>
+          <td class="stationNumber">{{ member.stationNumber }}</td>
             <td class="deleteTd">
               <button class="btn btn-small btn-danger" v-on:click="deleteMbr(member.memberID)">Delete</button>
             </td>
@@ -90,9 +90,13 @@
 
       <h2>Add a Member</h2>
 
-      <form method="post" v-on:submit.prevent="createMember()" id="newMemberForm">
+      <form method="post" v-on:submit.prevent="createdMember()" id="newMemberForm">
         <div class="member">
-          <textarea v-model="newMbr.memberText" class="form-control" rows="3"></textarea>
+          <textarea v-model="newMbr.firstName" class="form-control" rows="3"></textarea>
+          <textarea v-model="newMbr.lastName" class="form-control" rows="3"></textarea>
+          <textarea v-model="newMbr.preferredEmail" class="form-control" rows="3"></textarea>
+          <textarea v-model="newMbr.radioNumber" class="form-control" rows="3"></textarea>
+          <textarea v-model="newMbr.stationNumber" class="form-control" rows="3"></textarea>
         </div>
         <br/>
         <input type="submit" value="Create member" class="button" id="submitNewMember">
