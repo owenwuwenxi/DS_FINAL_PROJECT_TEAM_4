@@ -58,9 +58,9 @@ var mcApp = new Vue ({
             this.mbrNmcList += json;
             console.log(this.mbrNmcList);
           });
-          fetch('api/cert/')
-          .then( response => response.json() )
-          .then( json => {
+          fetch('api/certifications/')
+          .then(response => response.json())
+          .then(json => {
             this.mbrNmcList += json;
             console.log(this.mbrNmcList);
           });
