@@ -27,11 +27,17 @@
           <li class="nav-item">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="member_list.html" id="DropDown">Members<span class="sr-only">(current)</span></a>
-          </li>
-		  <li class="nav-item">
-		     <a class="nav-link" href="MemberDetails.html" id="DropDown">Member Details</a>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Members
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="member_list.html">Member List</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="MemberDetails.html">Member Details</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="create_mbr.html">Create Member</a>
+             </div>
           </li>
           <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +51,7 @@
                <a class="dropdown-item" href="create_cert.html">Create Certifications</a>
              </div>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
           </li>
           <li class="nav-item">
@@ -55,34 +61,35 @@
       </div>
     </nav>
     <h1>Certification Details</h1>
+    <form class="form-inline">
+      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification</label>
+      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+        <option>Choose...</option>
+        <option v-for= "certification in certList">{{ certification.certificationName }}</option>
+      </select>
+
+      <button type="submit" class="btn btn-primary my-1">View Details</button>
+    </form>
     <div class="container">
       <table class="table" id="certificationTable">
         <thead>
           <tr>
-            <th>Certification ID</th>
-            <th>Certifying Agency</th>
-            <th>Certification Name</th>
-            <th>standardExpiry</th>
+            <th>Certification</th>
+            <th>Member</th>
           </tr>
 
 
         </thead>
         <tbody id="certificationTableBody">
           <tr id="certifications" v-for="certification in cert_list">
-            <td class="certificationID">{{certification.certificationID}}</td>
-            <td class="certifyingAgency">{{certification.certifyingAgency}}</td>
-            <td class="certificationName">{{memberCertification.certificationName}}</td>
-            <td class="standardExpiry">{{memberCertification.standardExpiry}}</td>
+            <td class="certificationName">{{ }}</td>
+            <td class="standardExpiry">{{ }}</td>
           </tr>
 
         </tbody>
       </table>
     </div>
-    <form>
-      <button type="submit" class="btn btn-primary">add</button>
-      <button type="submit" class="btn btn-primary">edit</button>
-      <button type="submit" class="btn btn-primary">delete</button>
-    </form>
+
 
     <!-- END content -->
 

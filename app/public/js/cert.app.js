@@ -69,7 +69,7 @@ methods: {
   });
   },
 //edit certification methods
-  
+
 
   newCertificationData() {
     return {
