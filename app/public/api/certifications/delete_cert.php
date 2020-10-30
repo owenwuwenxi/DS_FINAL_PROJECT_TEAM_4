@@ -15,9 +15,19 @@ $stmt = $db->prepare(
   'DELETE FROM Certification WHERE certificationID=? '
 );
 
-$stmt->execute([
-  $_POST['certificationID']
-]);
+try {
+  $stmt->execute([
+    $_POST['certificationID']
+  ]);
+} catch (PDOException $e) {
+  if ($e->getCode() == 23000) {
+    header('HTTP/1.1 409 Integrity Violation');
+    header('Content-Type: application/json');
+    echo '{"error":"You can\'t do that. It\'s a FK violation."}';
+    exit;
+  }
+  throw $e;
+}
 
 // If needed, get auto-generated PK from DB
 // $pk = $db->lastInsertId();  // https://www.php.net/manual/en/pdo.lastinsertid.php

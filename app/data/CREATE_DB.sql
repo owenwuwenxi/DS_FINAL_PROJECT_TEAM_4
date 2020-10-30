@@ -58,7 +58,7 @@ mcID INT PRIMARY KEY auto_increment,
 memberID INT (5),
 certificationID INT (5),
 
-FOREIGN KEY (memberID) REFERENCES MemberTable(memberID),
+FOREIGN KEY (memberID) REFERENCES MemberTable(memberID) ON DELETE CASCADE,
 FOREIGN KEY (certificationID) REFERENCES Certification(certificationID),
 
 renewedDate CHAR(8),
