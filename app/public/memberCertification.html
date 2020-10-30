@@ -63,13 +63,9 @@
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
-          <tr v-for="memberCertification in mcList">
-            <td class="firstName">
-               Owen
-            </td>
-            <td class="lastName">
-               Wu
-            </td>
+          <tr v-for="memberCertification in mbrNmcList">
+            <td class="firstName">{{memberCertification.firstName}}</td>
+            <td class="lastName">{{memberCertification.lastName}}</td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
@@ -81,25 +77,25 @@
 
         </tbody>
       </table>
-      <form method="post">
+      <form method="post" v-for="memberCertification in mbrNmcList">
         <fieldset>
             <legend>Add a Certification to a Member</legend>
 
             <label for="MemberFirstName">Member's First Name</label>
             <select name="MemberFirstName" id="MemberFirstName">
-              <option>{{member.firstName}}</option>
+              <option>{{memberCertification.firstName}}</option>
             </select>
             <br>
 
             <label for="MemberLastName">Member's Last Name</label>
             <select name="MemberLastName" id="MemberLastName">
-              <option>{{member.lastName}}</option>
+              <option>{{memberCertification.lastName}}</option>
             </select>
             <br>
 
             <label for="CertificationName">Certification Name</label>
             <select name="CertificationName" id="CertificationName">
-              <option>{{certification.certificationName}}</option>
+              <option>{{memberCertification.certificationName}}</option>
             </select>
             <br>
 
