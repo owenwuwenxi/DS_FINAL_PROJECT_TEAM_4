@@ -3,6 +3,9 @@ var mcApp = new Vue ({
   data: {
 
     mcList:[],
+    certList: [],
+    mbrList:[],
+    mbrNmcList:[],
 
     newMC:{
       memberID:'',
@@ -23,6 +26,45 @@ var mcApp = new Vue ({
         console.log(this.mcList);
       });
       },
+
+    fetchCertification(){
+        fetch('api/certifications/')
+        .then(response => response.json())
+        .then(json => {
+          this.certList=json;
+          console.log(this.certList);
+        });
+      },
+
+      fetchmember() {
+        fetch('api/member/')
+        .then( response => response.json() )
+        .then( json => {
+          this.mbrList = json;
+          console.log(this.mbrList);
+        });
+        },
+
+        fetchmemberandcertification() {
+          fetch('api/member/')
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrNmcList = json;
+            console.log(this.mbrNmcList);
+          });
+          fetch('api/memberCertification/')
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrNmcList += json;
+            console.log(this.mbrNmcList);
+          });
+          fetch('api/cert/')
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrNmcList += json;
+            console.log(this.mbrNmcList);
+          });
+          },
 
       createMemberCertification(){
         fetch('api/memberCertification/create.php',{
@@ -68,5 +110,17 @@ var mcApp = new Vue ({
 
       created() {
         this.fetchMemberCertification();
+      },
+
+      created() {
+        this.fetchCertification();
+      },
+
+      created() {
+        this.fetchmember();
+      },
+
+      created() {
+        this.fetchmemberandcertification();
       }
     })
