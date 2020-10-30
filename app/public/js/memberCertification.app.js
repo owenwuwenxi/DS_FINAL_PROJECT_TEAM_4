@@ -24,49 +24,7 @@ var mcApp = new Vue ({
       });
       },
 
-    fetchCertification(){
-        fetch('api/certifications/')
-        .then(response => response.json())
-        .then(json => {
-          this.certList=json;
-          console.log(this.certList);
-        });
-      },
-
-      fetchmember() {
-        fetch('api/member/')
-        .then( response => response.json() )
-        .then( json => {
-          this.mbrList = json;
-          console.log(this.mbrList);
-        });
-        },
-
-        fetchmemberandcertification() {
-          fetch('api/member/')
-          .then( response => response.json() )
-          .then( json => {
-            this.mbrNmcList = json;
-            console.log(this.mbrNmcList);
-          });
-          fetch('api/memberCertification/')
-          .then( response => response.json() )
-          .then( json => {
-            this.mbrNmcList += json;
-            console.log(this.mbrNmcList);
-          });
-          fetch('api/certifications/')
-          .then(response => response.json())
-          .then(json => {
-            this.mbrNmcList += json;
-            console.log(this.mbrNmcList);
-          });
-          },
-
-
-
-      createdMemberCertification(){
-
+      createMemberCertification(){
         fetch('api/memberCertification/create.php',{
           method:'POST',
           body: JSON.stringify(this.newMC),
@@ -83,7 +41,7 @@ var mcApp = new Vue ({
       console.log("Creating (POSTing)...!");
       console.log(this.newMC);
     },
-    deleteMc(mcID) {
+    deleteMC(mcID) {
       fetch('api/memberCertification/delete.php',{
         method:'POST',
         body: JSON.stringify({"mcID":mcID}),
