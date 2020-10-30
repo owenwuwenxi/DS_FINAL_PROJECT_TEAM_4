@@ -33,17 +33,11 @@
 		  <li class="nav-item">
 		     <a class="nav-link" href="MemberDetails.html" id="DropDown">Member Details</a>
           </li>
-          <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               Certifications
-             </a>
-             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="cert_list.html">Certification List</a>
-               <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="CertificationDetails.html">Certification Details</a>
-               <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="create_cert.html">Create Certifications</a>
-             </div>
+		  <li class="nav-item">
+		     <a class="nav-link" href="cert_list.html" id="DropDown">Certifications</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="CertificationDetails.html" id="DropDown">Certification Details</a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
@@ -54,14 +48,13 @@
         </ul>
       </div>
     </nav>
-    <h1>Members' Certifications</h1>
+    <h1>Certification Details</h1>
     <div class="container" id="memberCertification">
       <table class="table" id="memberCertificationTable">
         <thead>
           <tr>
-            <th>Member First Name</th>
-            <th>Member Last Name</th>
-            <th>Certification Name</th>
+            <th>Member ID</th>
+            <th>Certification ID</th>
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
@@ -69,9 +62,8 @@
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
-          <tr v-for="memberCertification in mbrNmcList">
-            <td class="firstName">{{memberCertification.firstName}}</td>
-            <td class="lastName">{{memberCertification.lastName}}</td>
+          <tr v-for="memberCertification in mcList">
+            <td class="memberID">{{memberCertification.memberID}}</td>
             <td class="certificationID">{{memberCertification.certificationID}}</td>
             <td class="renewedDate">{{memberCertification.renewedDate}}</td>
             <td class="expirationDate">{{memberCertification.expirationDate}}</td>
@@ -83,30 +75,21 @@
 
         </tbody>
       </table>
-      <form method="post" v-for="memberCertification in mbrNmcList">
+      <form class="General" action="" method="get">
         <fieldset>
             <legend>Add a Certification to a Member</legend>
 
-            <label for="MemberFirstName">Member's First Name</label>
-            <select name="MemberFirstName" id="MemberFirstName">
-              <option>{{memberCertification.firstName}}</option>
-            </select>
-            <br>
-
-            <label for="MemberLastName">Member's Last Name</label>
-            <select name="MemberLastName" id="MemberLastName">
-              <option>{{memberCertification.lastName}}</option>
-            </select>
+            <label for="MemberName">Member Name</label>
+            <select name="MemberName" id="MemberName" v-for="member in ">
+              <option>{{memberCertification.expired}}</option>
             <br>
 
             <label for="CertificationName">Certification Name</label>
-            <select name="CertificationName" id="CertificationName">
-              <option>{{memberCertification.certificationName}}</option>
-            </select>
+            <input type="text" name="CertificationName" id="CertificationName">
             <br>
 
             <label for="RenewedDate">Renewed Date</label>
-            <input type="text" class="form-control" name="RenewedDate" id="RenewedDate" v-model="" placeholder="08/2018">
+            <input type="text" name="RenewedDate" id="RenewedDate">
             <br>
 
 
