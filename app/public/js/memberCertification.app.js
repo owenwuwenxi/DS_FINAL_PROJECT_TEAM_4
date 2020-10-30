@@ -3,9 +3,6 @@ var mcApp = new Vue ({
   data: {
 
     mcList:[],
-    certList: [],
-    mbrList:[],
-    mbrNmcList:[],
 
     newMC:{
       memberID:'',
@@ -66,7 +63,10 @@ var mcApp = new Vue ({
           });
           },
 
-      createMemberCertification(){
+
+
+      createdMemberCertification(){
+
         fetch('api/memberCertification/create.php',{
           method:'POST',
           body: JSON.stringify(this.newMC),
@@ -83,7 +83,7 @@ var mcApp = new Vue ({
       console.log("Creating (POSTing)...!");
       console.log(this.newMC);
     },
-    deleteMC(mcID) {
+    deleteMc(mcID) {
       fetch('api/memberCertification/delete.php',{
         method:'POST',
         body: JSON.stringify({"mcID":mcID}),
@@ -110,17 +110,5 @@ var mcApp = new Vue ({
 
       created() {
         this.fetchMemberCertification();
-      },
-
-      created() {
-        this.fetchCertification();
-      },
-
-      created() {
-        this.fetchmember();
-      },
-
-      created() {
-        this.fetchmemberandcertification();
       }
     })
