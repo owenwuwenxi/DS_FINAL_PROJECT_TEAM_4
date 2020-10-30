@@ -31,7 +31,7 @@ var mbrApp = new Vue ({
       });
       },
 
-      createdMemberCertification(){
+      createdMember(){
         fetch('api/member/create.php',{
           method:'POST',
           body: JSON.stringify(this.newMbr),
