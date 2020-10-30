@@ -110,18 +110,6 @@ INSERT INTO Certification (certificationID, certifyingAgency, certificationName,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 INSERT INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate) VALUES
 
 (00001, 00004, "08/2018", "08/2020"),
