@@ -1,75 +1,44 @@
-var mcApp = new Vue ({
+var reportDetails = new Vue ({
   el: '#reports',
   data: {
-
-    reportList:[],
-
-    newReport:{
+    mbrList:[],
+    certList: [],
+    mcList:[],
+    reports:{
       firstName:'',
       lastName:'',
-      stationNumber:'',
       radioNumber:'',
+      stationNumber:'',
       preferredEmail:'',
-      certificationName:'',
+      memberID:'',
+      certificationName: '',
+      certifyingAgency: '',
+      certificationID:'',
+      renewedDate:'',
       expirationDate:'',
-      isActive:''
-    },
-  },
-
-
-  methods:{
-    fetchreports() {
-      fetch('api/reports/')
-      .then( response => response.json() )
-      .then( json => {
-        this.reportList = json;
-        console.log(this.reportList);
-      });
-      },
-
-      createdreports(){
-        fetch('api/reports/create.php',{
-          method:'POST',
-          body: JSON.stringify(this.newReport),
-          headers:{
-            "Content-Type": "application/json; charset=utf-8"
-          }
-        })
-        .then( response => response.json() )
-        .then( json => {
-          console.log("Returned from post:", json);
-          this.reportList.push(json[0]);
-          this.newReport = this.newReportData();
-      });
-      console.log("Creating (POSTing)...!");
-      console.log(this.newReport);
-    },
-    deleteMc(report) {
-      fetch('api/reports/delete.php',{
-        method:'POST',
-        body: JSON.stringify({"mcID":mcID}),
-        headers:{
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .then( json => {
-        this.reportList = json;
-        //do the right stuff here
-    });
-    },
-    newReportData(){
-      return {
-        firstName:'',
-        lastName:'',
-        stationNumber:'',
-        radioNumber:'',
-        preferredEmail:''
-      }
+      expired:''
     }
-  },
-
-      created() {
-        this.fetchreports();
+},
+methods:{
+  fetchmember() {
+    fetch('api/reports/index.php')
+    .then( response => response.json())
+    .then( json => {this.mbrList = json})
+    },
+    fetchMemberCertification() {
+      fetch('api/reports/membCert_index.php')
+      .then( response => response.json())
+      .then( json => {this.mcList = json})
+    },
+    fetchCertification(){
+      fetch('api/reports/cert_index.php')
+      .then(response => response.json())
+      .then(json => {this.certList=json})
       }
-    })
+    },
+    created() {
+      this.fetchmember();
+      this.fetchCertification();
+      this.fetchMemberCertification();
+    }
+  });
