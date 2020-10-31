@@ -3,6 +3,9 @@ var mcApp = new Vue ({
   data: {
 
     mcList:[],
+    certList:[],
+    mbrList:[],
+    mbrNmcList:[],
 
     newMC:{
       memberID:'',

@@ -10,10 +10,10 @@ $sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification';
 $vars = [];
 #May not be Now(), but it's that idea
 
-if (isset($_GET['mcID'])) {
+if (isset($_GET['certificationID'])) {
   // This is an example of a parameterized query
-  $sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification WHERE mcID = ?';
-  $vars = [ $_GET['mcID'] ];
+  $sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification WHERE certificationID = ?';
+  $vars = [ $_GET['certification'] ];
 }
 #?
 
