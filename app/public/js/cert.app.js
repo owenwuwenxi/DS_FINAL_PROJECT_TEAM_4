@@ -76,10 +76,9 @@ methods: {
   },
 //edit certification methods
 
-
   newCertificationData() {
     return {
-      certficationID: '',
+      certificationID: '',
       certifyingAgency: '',
       certificationName: '',
       standardExpiry: ''

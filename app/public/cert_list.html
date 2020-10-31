@@ -66,8 +66,32 @@
     </nav>
 
     <h1>Certifications</h1>
-
+    <!--edit functionality -->
     <div id="certificationTable" >
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Certification Name</label>
+        <select>
+          <option value="">Choose...</option>
+          <option v-for="certification in certList">{{ certification.certificationName }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Edit Agency</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new agency">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Edit Name</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new name">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Edit Standard Expiry</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new standard expiry">
+      </div>
+  </form>
+
+      <button class="btn btn-small btn-primary" v-on:click="editCert(certification.certificationID)">Edit Certification</button>
+
       <table class="table">
         <thead>
           <tr>
@@ -86,11 +110,9 @@
             <td>{{ certification.certificationName }}</td>
             <td>{{ certification.standardExpiry }}</td>
             <td class="deleteTd">
-              <button class="btn btn-small btn-primary" v-on:click="editCert(certification.certificationID)">Edit</button>
-            </td>
-            <td class="deleteTd">
               <button class="btn btn-small btn-secondary" v-on:click="deleteCert(certification.certificationID)">Delete</button>
             </td>
+            <!--new stuff-->
           </tr>
         </tbody>
       </table>
