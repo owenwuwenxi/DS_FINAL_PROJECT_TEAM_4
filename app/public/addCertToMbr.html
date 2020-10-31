@@ -65,21 +65,37 @@
       </div>
     </nav>
 
-    <h1>Certifications</h1>
+    <h1>Member's Certification</h1>
+    <br>
+    <h3>Add a Certification to an Existing Member</h3>
+    <div class="container">
 
-    <div id="certificationTable" >
+      <form method="post" v-for="mc in mcList" v-on:submit.prevent="createMemberCertification()" id="memberCertificationTable">
+        <fieldset>
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Member's ID</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option>Choose...</option>
+            <option>{{mc.memberID}}</option>
+          </select>
+          <br>
 
-      <h2>Add a Certification</h2>
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification's ID</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option>Choose...</option>
+            <option>{{mc.certificationID}}</option>
+          </select>
+          <br>
 
-      <form method="post" v-on:submit.prevent="createCertification()" id="newCertificationForm">
-        <div class="certifications">
-          <textarea v-model="newCertification.certificationID" class="form-control" rows="3" placeholder="Enter Certification ID"></textarea>
-          <textarea v-model="newCertification.certifyingAgency" class="form-control" rows="3" placeholder="Enter Certifying Agency"></textarea>
-          <textarea v-model="newCertification.certificationName" class="form-control" rows="3" placeholder="Enter Certification Name"></textarea>
-          <textarea v-model="newCertification.standardExpiry" class="form-control" rows="3" placeholder="Enter Standard Expiry"></textarea>
-        </div>
-        <br/>
-        <input type="submit" value="Create Certification" class="button" id="submitNewCertification">
+          <label for="RenewedDate">Renewed Date</label>
+          <input type="text" name="RenewedDate" id="RenewedDate" placeholder="08/2020">
+          <br>
+
+          <label for="ExperiationDate">Expiration Date</label>
+          <input type="text" name="ExperiationDate" id="ExperiationDate" placeholder="08/2022">
+          <br>
+        </fieldset>
+        <br>
+        <input type="submit" value="Add Certification" class="button" id="submitNewCertification" v-on:click=createMemberCertification()>
         <!--
         <button class="btn btn-primary" type="submit" id="submitNewComment">Comment</button>
       -->
@@ -97,6 +113,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/cert.app.js"></script>
+    <script src="js/memberCertification.app.js"></script>
   </body>
 </html>
