@@ -63,7 +63,7 @@
       </div>
     </nav>
     <h1>Certification Details</h1>
-    <div class="container" id="memberCertification">
+    <div class="container" id="memberCertificationVue">
     <form class="form-inline">
       <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification</label>
       <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
@@ -77,15 +77,13 @@
       <table class="table" id="certificationTable">
         <thead>
           <tr>
-            <th>Member First Name</th>
-            <th>Member Last Name</th>
+            <th>Member ID</th>
             <th>Expired?</th>
           </tr>
         </thead>
         <tbody id="certificationTableBody">
-          <tr id="certifications" v-for="mbr in mbrList">
-            <td class="memberFirstName">{{mbr.firstName}}</td>
-            <td class="memberFLastName">{{mbr.lastName}}</td>
+          <tr id="members" v-for="mbr in mbrList">
+            <td class="memberID">{{mbr.memberID}}</td>
             <td class="expired">{{}}</td>
           </tr>
 
