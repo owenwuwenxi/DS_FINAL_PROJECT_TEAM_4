@@ -7,10 +7,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <link rel="stylesheet" href="css\style.css">
+    <link rel="stylesheet" href="css\style.css">
+
+    <link rel="icon" href="data:;base64,=">
     <!-- my custom CSS goes here -->
 
-    <title>memberCertifications</title>
+    <title>Certifications</title>
   </head>
   <body>
     <header class="row">
@@ -62,58 +64,43 @@
         </ul>
       </div>
     </nav>
-    <h1>Certification Details</h1>
-    <div class="container" id="memberCertification">
-      <table class="table" id="memberCertificationTable">
-        <thead>
-          <tr>
-            <th>Member ID</th>
-            <th>Certification ID</th>
-            <th>Renewed Date</th>
-            <th>Expiration Date</th>
-            <th>Expired?</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody id="memberCertificationTableBody">
-          <tr v-for="memberCertification in mcList">
-            <td class="memberID">{{memberCertification.memberID}}</td>
-            <td class="certificationID">{{memberCertification.certificationID}}</td>
-            <td class="renewedDate">{{memberCertification.renewedDate}}</td>
-            <td class="expirationDate">{{memberCertification.expirationDate}}</td>
-            <td class="expired">{{memberCertification.expired}}</td>
-            <td class="deleteTd">
-              <button class="btn btn-small btn-delete btn-secondary" v-on:click="deleteMC(memberCertification.mcID)">Delete</button>
-            </td>
-          </tr>
 
-        </tbody>
-      </table>
-      <form class="General" action="" method="get">
+    <h1>Member's Certification</h1>
+    <br>
+    <h3>Add a Certification to an Existing Member</h3>
+    <div class="container" id="memberCertificationVue">
+
+      <form method="post" v-for="mc in mcList" v-on:submit.prevent="createMemberCertification()">
         <fieldset>
-            <legend>Add a Certification to a Member</legend>
-
-            <label for="MemberName">Member Name</label>
-            <select name="MemberName" id="MemberName" v-for="member in mbrList">
-              <option>{{memberCertification.expired}}</option>
-            <br>
-
-            <label for="CertificationName">Certification Name</label>
-            <input type="text" name="CertificationName" id="CertificationName">
-            <br>
-
-            <label for="RenewedDate">Renewed Date</label>
-            <input type="text" name="RenewedDate" id="RenewedDate">
-            <br>
-
-
-          </fieldset>
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Member's ID</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option>Choose...</option>
+            <option>{{mc.memberID}}</option>
+          </select>
           <br>
 
-        <button type="submit" class="btn btn-primary" v-on:click="createMemberCertification">Add</button>
+          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification's ID</label>
+          <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <option>Choose...</option>
+            <option>{{mc.certificationID}}</option>
+          </select>
+          <br>
+
+          <label for="RenewedDate">Renewed Date</label>
+          <input type="text" name="RenewedDate" id="RenewedDate" placeholder="08/2020">
+          <br>
+
+          <label for="ExperiationDate">Expiration Date</label>
+          <input type="text" name="ExperiationDate" id="ExperiationDate" placeholder="08/2022">
+          <br>
+        </fieldset>
+        <br>
+        <input type="submit" value="Add Certification" class="button" id="submitNewCertification" v-on:click=createMemberCertification()>
+        <!--
+        <button class="btn btn-primary" type="submit" id="submitNewComment">Comment</button>
+      -->
       </form>
     </div>
-
 
     <!-- END content -->
 
@@ -126,11 +113,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/tablesort.min.js"></script>
-    <script>
-      // Tablesort plugin from http://tristen.ca/tablesort/demo/
-      new Tablesort(document.getElementById('memberCertificationTable'));
-    </script>
     <script src="js/memberCertification.app.js"></script>
   </body>
 </html>

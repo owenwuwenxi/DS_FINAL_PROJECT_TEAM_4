@@ -5,11 +5,11 @@ USE OCFR_TEAM4;
 DROP TABLE IF EXISTS MemberCertification;
 DROP TABLE IF EXISTS MemberTable;
 DROP TABLE IF EXISTS Certification;
-DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS UserTable;
 
 CREATE TABLE MemberTable(
 
-memberID INT(5) PRIMARY KEY,
+memberID INT(5) PRIMARY KEY auto_increment,
 
 firstName VARCHAR(25) NOT NULL,
 
@@ -41,7 +41,7 @@ dPosition VARCHAR(25)
 
 CREATE TABLE Certification (
 
-certificationID INT(5) PRIMARY KEY,
+certificationID INT(5) PRIMARY KEY auto_increment,
 
 certifyingAgency VARCHAR(255) NOT NULL,
 
@@ -92,31 +92,19 @@ VALUES  (00001, "Kathyrn", "Pryde", "A-1", "all", 1, "1123 Xavier School Drive, 
 
 INSERT INTO Certification (certificationID, certifyingAgency, certificationName, standardExpiry) VALUES
 
-(11111, "CPR for Healthcare Providers/American Heart Association", "CPRHC", 2),
+(00001, "CPR for Healthcare Providers/American Heart Association", "CPRHC", 2),
 
- (22222, "CPR for the Professional Rescuer/American Red Cross", "CPRPR", 2),
+ (00002, "CPR for the Professional Rescuer/American Red Cross", "CPRPR", 2),
 
- (33333, "Athens Technical College", "Firefighter I", 3),
+ (00003, "Athens Technical College", "Firefighter I", 3),
 
-(44444, "Ivy Technical College", "Firefighter II", 3),
+(00004, "Ivy Technical College", "Firefighter II", 3),
 
-(55555, "Georgia POST Academy", "POST", 5),
+(00005, "Georgia POST Academy", "POST", 5),
 
- (66666, "Hazmat Academy", "HAZMAT", 3),
+ (00006, "Hazmat Academy", "HAZMAT", 3),
 
- (77777, "EMT College", "EMT-Adv", 5);
-
-
-
-
-
-
-
-
-
-
-
-
+ (00007, "EMT College", "EMT-Adv", 5);
 
 
 
@@ -124,19 +112,19 @@ INSERT INTO Certification (certificationID, certifyingAgency, certificationName,
 
 INSERT INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate) VALUES
 
-(00001, 44444, "08/2018", "08/2020"),
+(00001, 00004, "08/2018", "08/2020"),
 
- (00001, 22222, "07/2017", "07/2019"),
+ (00001, 00002, "07/2017", "07/2019"),
 
- (00001, 66666, "05/2016", "02/2020"),
+ (00001, 00006, "05/2016", "02/2020"),
 
- (00002, 77777, "09/2020", "09/2025"),
+ (00002, 00007, "09/2020", "09/2025"),
 
- (00002, 11111, "07/2019", "07/2021"),
+ (00002, 00001, "07/2019", "07/2021"),
 
- (00003, 11111, "07/2020", "07/2022"),
+ (00003, 00001, "07/2020", "07/2022"),
 
-(00003, 33333, "08/2020", "08/2023");
+(00003, 00003, "08/2020", "08/2023");
 
 
 

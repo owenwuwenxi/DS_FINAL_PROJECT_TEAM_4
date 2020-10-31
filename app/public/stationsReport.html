@@ -15,7 +15,6 @@
     <header class="row">
       <h1>Oconee County Fire Rescue</h1>
     </header>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="userProfile">
       <a class="navbar-brand" href="index.html"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,29 +80,8 @@
                 <label for="selectingAll"></label>
               </span>
             </th> -->
-             <th scope="col">First Name</th>
-              <th scope="col">Last Name</th>
-              <th scope="col">Station</th>
-             <th scope="col">Radio Number</th>
-             <th scope="col">Email</th>
 
-
-          </tr>
-        </thead>
-          <tbody>
-            <tr v-for="reports in mbrList">
-              <td class="firstName">{{reports.firstName}}</td>
-              <td class="lastName">{{reports.lastName}}</td>
-              <td class="radioNumber">{{reports.radioNumber}}</td>
-              <td class="rstationNumber">{{reports.stationNumber}}</td>
-              <td class="preferredEmail">{{reports.preferredEmail}}</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-</div>
-
-          <h1>Expired Certifications</h1>
+          <h1>Report By Stations</h1>
           <div class="container" id="reports">
             <div class= "table-responsive">
             <table id="tableTask" class="sortable table table-striped table-hover">
@@ -115,7 +93,6 @@
                    <th scope="col">Radio Number</th>
                    <th scope="col">Email</th>
                    <th scope="col">member ID</th>
-                   <th scope="col">Certification ID</th>
                    <th scope="col">renewedDate</th>
 
                 </tr>
@@ -134,38 +111,6 @@
                 </tbody>
               </table>
 
-              <h1>Station #1</h1>
-              <div class="container" id="reports">
-                <div class= "table-responsive">
-                <table id="tableTask" class="sortable table table-striped table-hover">
-                  <thead>
-                    <tr>
-                       <th>First Name</th>
-                       <th>Last Name</th>
-                       <th>Station</th>
-                       <th>Radio Number</th>
-                       <th>Email</th>
-                       <th>Certification Name</th>
-                       <th>Expiration Date</th>
-
-                    </tr>
-                    <tbody id="reportsTableb2">
-                      <tr v-for="reports in mbrList">
-                        <td class="firstName">{{reports.firstName}}</td>
-                        <td class="lastName">{{reports.lastName}}</td>
-                        <td class="stationNumber">{{reports.stationNumber}}</td>
-                        <td class="radioNumber">{{reports.radioNumber}}</td>
-                        <td class="preferredEmail">{{reports.preferredEmail}}</td>
-                        <td class="certificationName">{{reports.certificationName}}</td>
-                        <td class="expirationDate">{{reports.expirationDate}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-        <form>
-      <button type="submit" class="btn btn-primary">add</button>
-      <button type="submit" class="btn btn-primary">edit</button>
-      <button type="submit" class="btn btn-primary">delete</button>
-    </form>
 
 	    <!-- END content -->
 
