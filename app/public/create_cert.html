@@ -73,7 +73,6 @@
 
       <form method="post" v-on:submit.prevent="createCertification()" id="newCertificationForm">
         <div class="certifications">
-          <textarea v-model="newCertification.certificationID" class="form-control" rows="3" placeholder="Enter Certification ID"></textarea>
           <textarea v-model="newCertification.certifyingAgency" class="form-control" rows="3" placeholder="Enter Certifying Agency"></textarea>
           <textarea v-model="newCertification.certificationName" class="form-control" rows="3" placeholder="Enter Certification Name"></textarea>
           <textarea v-model="newCertification.standardExpiry" class="form-control" rows="3" placeholder="Enter Standard Expiry"></textarea>
