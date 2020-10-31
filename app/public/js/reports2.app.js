@@ -1,6 +1,6 @@
 var reportDetails = new Vue ({
   el: '#reports',
-  data: {
+  data:{
     mbrList:[],
     certList: [],
     mcList:[],
@@ -11,8 +11,6 @@ var reportDetails = new Vue ({
       stationNumber:'',
       preferredEmail:'',
       memberID:'',
-      certificationName: '',
-      certifyingAgency: '',
       certificationID:'',
       renewedDate:'',
       expirationDate:'',
