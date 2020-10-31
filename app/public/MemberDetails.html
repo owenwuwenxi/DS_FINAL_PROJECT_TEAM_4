@@ -62,6 +62,8 @@
         </ul>
       </div>
     </nav>
+
+
     <h1>Member Details</h1>
     <div class="container" id="memberCertification">
       <table class="table" id="memberCertificationTable">
@@ -92,12 +94,12 @@
       <form class="General" action="" method="get">
         <fieldset>
             <legend>Add a Certification to a Member</legend>
-
+          <div v-for="member in mbrList">
             <label for="MemberName">Member Name</label>
-            <select name="MemberName" id="MemberName" v-for="member in ">
-              <option>{{memberCertification.expired}}</option>
+            <select name="MemberName" id="MemberName">
+              <option>{{member.firstName}}</option>
             <br>
-
+          </div>
             <label for="CertificationName">Certification Name</label>
             <input type="text" name="CertificationName" id="CertificationName">
             <br>
@@ -107,8 +109,8 @@
             <br>
 
 
-          </fieldset>
-          <br>
+        </fieldset>
+        <br>
 
         <button type="submit" class="btn btn-primary" v-on:click="createMemberCertification">Add</button>
         <button type="submit" class="btn btn-primary" v-on:click="editMemberCertification">edit</button>
