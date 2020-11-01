@@ -19,7 +19,7 @@ radioNumber VARCHAR(10) NOT NULL,
 
 stationNumber INT(10) NOT NULL,
 
-isActive BIT(5) NOT NULL,
+isActive ENUM("Active", "Not Active") NOT NULL DEFAULT "Active",
 
 address VARCHAR(255) NOT NULL,
 
@@ -80,11 +80,11 @@ user_Password VARCHAR (255) NOT NULL
 
 
 INSERT INTO MemberTable(memberID, firstName, lastName, radioNumber, stationNumber, isActive, address, preferredEmail, dob, startDATE, gender, dPosition)
-VALUES  (00001, "Kathyrn", "Pryde", "A-1", "all", 1, "1123 Xavier School Drive, Watkinsville, GA 30677", "kpryde@ocfire.com", "10/4/1975", "9/1/2000", "Female", "Chief"),
+VALUES  (00001, "Kathyrn", "Pryde", "A-1", "all", "Active", "1123 Xavier School Drive, Watkinsville, GA 30677", "kpryde@ocfire.com", "10/4/1975", "9/1/2000", "Female", "Chief"),
 
-(00002, "Piotr", "Rasputin", 841, 8, 1, "A31 Mother Russia Road, Seattle, WA 98133", "rpiotr@ocfire.com", "10/5/1972", "05/15/2015", "Male", "Level 2 Firefighter"),
+(00002, "Piotr", "Rasputin", 841, 8, "Active", "A31 Mother Russia Road, Seattle, WA 98133", "rpiotr@ocfire.com", "10/5/1972", "05/15/2015", "Male", "Level 2 Firefighter"),
 
- (00003, "Warren", "Worthington", 122, 1, 1, "1140 Experiment Station Rd Watkinsville, GA", "warrenworthington@ocfire.com", "09/23/1965", "08/24/2018", "Male", "level 1 firefighter");
+ (00003, "Warren", "Worthington", 122, 1, "Active", "1140 Experiment Station Rd Watkinsville, GA", "warrenworthington@ocfire.com", "09/23/1965", "08/24/2018", "Male", "level 1 firefighter");
 
 
 
