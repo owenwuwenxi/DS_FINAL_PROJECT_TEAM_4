@@ -67,63 +67,59 @@
         </ul>
       </div>
     </nav>
-    <h1>Reports</h1>
     <div class="container" id="reports">
+      <form class ="form-inline">
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification</label>
+        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+          <option>Choose...</option>
+          <option v-for="reports in mbrList">{{reports.certificationName}}</option>
+          </select>
+      <br>
+
       <div class="table-responsive">
-        <div class="table-wrapper">
-      <table id="tableTask"  class="sortable table"  width="100%">
+      <table class="sortable table"  width="100%">
         <thead>
           <tr>
-            <!-- <th>
-              <span class = "custom-checkbox">
-                <input type="checkbox" id="selectingAll"
-                <label for="selectingAll"></label>
-              </span>
-            </th> -->
-
+            <article>
           <h1>Expired Certifications</h1>
-          <div class="container" id="reports">
+        </article>
             <div class= "table-responsive">
             <table id="tableTask" class="sortable table table-striped table-hover">
               <thead>
                 <tr>
                   <th scope="col">First Name</th>
                    <th scope="col">Last Name</th>
-                   <th scope="col">Station</th>
-                   <th scope="col">Radio Number</th>
-                   <th scope="col">Email</th>
-                   <th scope="col">member ID</th>
-                   <th scope="col">Certification ID</th>
-                   <th scope="col">renewedDate</th>
+                   <th scope="col">Certification Name</th>
+                   <th scope="col">Certification Agency</th>
+                   <th scope="col">Expiration Date</th>
+
 
                 </tr>
                 <tbody id="reportsTableBody">
                   <tr v-for="reports in mbrList">
                     <td class="firstName">{{reports.firstName}}</td>
                     <td class="lastName">{{reports.lastName}}</td>
-                    <td class="stationNumber">{{reports.stationNumber}}</td>
-                    <td class="radioNumber">{{reports.radioNumber}}</td>
-                    <td class="preferredEmail">{{reports.preferredEmail}}</td>
-                    <td class="memberID">{{reports.memberID}}</td>
-                    <td class="certificationID">{{reports.certificationID}}</td>
-                    <td class="renewedDate">{{reports.renewedDate}}</td>
+                    <td class="certificationName">{{reports.certificationName}}</td>
+                    <td class="certifyingAgency">{{reports.certifyingAgency}}</td>
+                    <td class="expirationDate">{{reports.expirationDate}}</td>
 
                   </tr>
                 </tbody>
+              </div>
+
               </table>
+
 
 
 	    <!-- END content -->
 
     <!-- Footer? Insert here -->
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/tablesort.min.js"></script>
-    <script>
-      new Tablesort(document.getElementById('tableTask'));
-    </script>
-<script src='js/tablesort.number.js'></script>
-<script src='js/tablesort.date.js'></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS
+    thank you to:   https://stackoverflow.com/questions/10683712/html-table-sort for a competent <table>
+      sort!!
+    </table>-->
+      <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
