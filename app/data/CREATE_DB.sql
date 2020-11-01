@@ -141,3 +141,5 @@ INSERT INTO UserTable (email, user_Password) VALUES
  ("marshmello@ocfire.com", "NoAudienceNoConcert&"),
 
  ("datboi@ocfire.com", "DATboi");
+
+join Certification, MemberCertification

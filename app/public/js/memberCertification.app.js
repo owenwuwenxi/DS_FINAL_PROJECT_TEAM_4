@@ -29,6 +29,7 @@ var mcApp = new Vue ({
       .then( json => {
         this.mcList = json;
         console.log(this.mcList);
+        }
       });
       },
 
