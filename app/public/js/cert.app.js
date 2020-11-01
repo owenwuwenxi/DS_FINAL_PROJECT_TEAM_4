@@ -9,7 +9,8 @@ var certificationApp = new Vue({
     certifyingAgency: '',
     certificationName: '',
     standardExpiry: ''
-  }
+  },
+
 },
 methods: {
   fetchCertification(){
@@ -53,6 +54,9 @@ methods: {
       //do the right stuff here
   });
   },
+  //edit Certifications
+
+
   //delete certification method
   deleteCert(certificationID) {
     fetch('api/certifications/delete_cert.php',{

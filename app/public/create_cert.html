@@ -65,19 +65,35 @@
       </div>
     </nav>
 
-    <h1>Certifications</h1>
+    <h1>Add a Certification</h1>
 
     <div id="certificationTable" >
 
-      <h2>Add a Certification</h2>
-
       <form method="post" v-on:submit.prevent="createCertification()" id="newCertificationForm">
         <div class="certifications">
-          <textarea v-model="newCertification.certifyingAgency" class="form-control" rows="3" placeholder="Enter Certifying Agency"></textarea>
-          <textarea v-model="newCertification.certificationName" class="form-control" rows="3" placeholder="Enter Certification Name"></textarea>
-          <textarea v-model="newCertification.standardExpiry" class="form-control" rows="3" placeholder="Enter Standard Expiry"></textarea>
+          <label>Certifying Agency:</label>
+          <input v-model="newCertification.certifyingAgency" class="form-control" rows="3" placeholder="Enter Certifying Agency">
+          <br>
+          <label>Certification Name:</label>
+          <input v-model="newCertification.certificationName" class="form-control" rows="3" placeholder="Enter Certification Name">
+          <br>
+          <label>Standard Expiry:</label>
+
+          <select v-model="newCertification.standardExpiry" class="custom-select" size="3">
+            <option selected>Select Standard Expiry...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="3">4</option>
+            <option value="3">5</option>
+            <option value="3">6</option>
+            <option value="3">7</option>
+            <option value="3">8</option>
+            <option value="3">9</option>
+            <option value="3">10</option>
+          </select>
         </div>
-        <br/>
+        <br>
         <input type="submit" value="Create Certification" class="button" id="submitNewCertification">
         <!--
         <button class="btn btn-primary" type="submit" id="submitNewComment">Comment</button>

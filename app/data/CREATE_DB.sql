@@ -19,7 +19,7 @@ radioNumber VARCHAR(10) NOT NULL,
 
 stationNumber INT(10) NOT NULL,
 
-isActive BIT(5) NOT NULL,
+isActive ENUM("Active", "Not Active") NOT NULL DEFAULT "Active",
 
 address VARCHAR(255) NOT NULL,
 

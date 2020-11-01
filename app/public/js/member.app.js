@@ -5,11 +5,18 @@ var mbrApp = new Vue ({
     mbrList:[],
 
     newMbr:{
+      memberID: '',
       firstName:'',
       lastName:'',
       radioNumber:'',
       stationNumber:'',
+      isActive: '',
+      address: '',
       preferredEmail:'',
+      dob: '',
+      startDate: '',
+      gender: '',
+      dPosition:''
     },
   },
 
