@@ -1,5 +1,5 @@
 var mcApp = new Vue ({
-  el: '#memberCertificationTable',
+  el: '#memberCertificationVue',
   data: {
 
     mcList:[],
