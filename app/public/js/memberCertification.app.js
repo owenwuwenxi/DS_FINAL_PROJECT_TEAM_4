@@ -11,9 +11,14 @@ var mcApp = new Vue ({
       memberID:'',
       certificationID:'',
       renewedDate:'',
-      expirationDate:'',
-      expired:''
+      expirationDate:''
     },
+    selectedMemberCert:{
+      memberID:'',
+      certificationID:'',
+      renewedDate:'',
+      expirationDate:''
+    }
   },
 
 
@@ -49,27 +54,27 @@ var mcApp = new Vue ({
             fetch('api/member/')
             .then( response => response.json() )
             .then( json => {
-              this.mbrNmcList = json;
-              console.log(this.mbrNmcList);
+              this.mbrList = json;
+              console.log(this.mbrList);
             });
             fetch('api/memberCertification/')
             .then( response => response.json() )
             .then( json => {
-              this.mbrNmcList += json;
-              console.log(this.mbrNmcList);
+              this.mcList = json;
+              console.log(this.mcList);
             });
             fetch('api/certifications/')
             .then(response => response.json())
             .then(json => {
-              this.mbrNmcList += json;
-              console.log(this.mbrNmcList);
+              this.certList = json;
+              console.log(this.certList);
             });
             },
 
       createMemberCertification(){
         fetch('api/memberCertification/create.php',{
           method:'POST',
-          body: JSON.stringify(this.newMC),
+          body: JSON.stringify(this.selectedMemberCert),
           headers:{
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -77,11 +82,11 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList.push(json[0]);
+          this.mcList = json;
           this.newMC = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
-      console.log(this.newMC);
+      console.log(this.selectedMemberCert);
     },
     deleteMC(mcID) {
       fetch('api/memberCertification/delete.php',{
@@ -105,10 +110,15 @@ var mcApp = new Vue ({
         expirationDate:'',
         expired:''
       }
+    },
+    addMemberCert(){
+
     }
   },
 
       created() {
-        this.fetchMemberCertification();
+        this.fetchmemberandcertification();
+
+        // this.fetchMemberCertification();
       }
     })
