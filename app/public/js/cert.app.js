@@ -10,6 +10,12 @@ var certificationApp = new Vue({
     certificationName: '',
     standardExpiry: ''
   },
+  selectedCert:{
+    certificationID: '',
+    certifyingAgency: '',
+    certificationName: '',
+    standardExpiry: ''
+  }
 
 },
 methods: {
@@ -80,6 +86,10 @@ methods: {
   },
 //edit certification methods
 
+  viewDetail(certificationID){
+
+  },
+
   newCertificationData() {
     return {
       certificationID: '',
@@ -87,8 +97,14 @@ methods: {
       certificationName: '',
       standardExpiry: ''
     }
-  }
+  },
+
+  editCert(){
+    
+  },
+
 },
+
 created(){
   this.fetchCertification();
 
