@@ -28,7 +28,17 @@ var mcApp = new Vue ({
       .then( response => response.json() )
       .then( json => {
         this.mcList = json;
-        console.log(this.mcList);        
+        console.log(this.mcList);
+        for (var i = 0; i < mcList.length; i++) {
+          mcList[i]
+          if (expired==1) {
+            expired="Expired"
+          }
+          else {
+            expired="Not Expired"
+          }
+        }
+
       });
       },
 
@@ -62,6 +72,15 @@ var mcApp = new Vue ({
             .then( json => {
               this.mcList = json;
               console.log(this.mcList);
+              //for (var i = 0; i < mcList.length; i++) {
+                //mcList[i]
+                //if (expired==1) {
+                  //expired="Expired"
+                //}
+                //else {
+                  //expired="Not Expired"
+                //}
+              //}
             });
             fetch('api/certifications/')
             .then(response => response.json())

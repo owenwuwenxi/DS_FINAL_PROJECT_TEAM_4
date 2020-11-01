@@ -64,6 +64,10 @@ var mbrApp = new Vue ({
         });
     },
 
+    viewDetail(memberID){
+
+    },
+
     newMBRData(){
       return {
         memberID:'',
