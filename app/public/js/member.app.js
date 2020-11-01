@@ -5,11 +5,18 @@ var mbrApp = new Vue ({
     mbrList:[],
 
     newMbr:{
+      memberID: '',
       firstName:'',
       lastName:'',
       radioNumber:'',
       stationNumber:'',
+      isActive: '',
+      address: '',
       preferredEmail:'',
+      dob: '',
+      startDate: '',
+      gender: '',
+      dPosition:''
     },
   },
 
@@ -43,18 +50,18 @@ var mbrApp = new Vue ({
     },
 
     deleteMbr(memberID) {
-      fetch('api/member/delete.php',{
-        method:'POST',
-        body: JSON.stringify({"memberID":memberID}),
-        headers:{
-          "Content-Type": "application/json; charset=utf-8"
-        }
-      })
-      .then( response => response.json() )
-      .then( json => {
-        this.mbrList = json;
-        //do the right stuff here
-    });
+          fetch('api/member/delete.php',{
+            method:'POST',
+            body: JSON.stringify({"memberID":memberID}),
+            headers:{
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrList = json;
+            //do the right stuff here
+        });
     },
 
     newMBRData(){

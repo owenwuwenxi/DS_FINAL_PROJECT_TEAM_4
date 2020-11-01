@@ -128,49 +128,59 @@
               <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Gender:</legend>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="Male">
                   <label class="form-check-label" for="inlineRadio1">Male</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="Female">
                   <label class="form-check-label" for="inlineRadio2">Female</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="Other">
                   <label class="form-check-label" for="inlineRadio3">Other</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                  <label class="form-check-label" for="inlineRadio4">Prefer Not To Disclose</label>
+                  <input v-model="newMbr.gender" class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="Prefer Not to Disclose">
+                  <label class="form-check-label" for="inlineRadio4">Prefer not to disclose</label>
                 </div>
                 </div>
               </div>
             </fieldset>
-            <label>Station Number:</label>
-            <select v-model="newMbr.stationNumber" class="form-control" rows="3">
-              <option selected> Select station number... </option>
-              <option> 1 </option>
-              <option> 2 </option>
-              <option> 3 </option>
-            </select>
-            <br>
-            <label>Radio Number:</label>
-            <select v-model="newMbr.radioNumber" class="form-control" rows="3" placeholder="Select radio number...">
-              <option selected> Select radio number... </option>
-              <option> 1 </option>
-              <option> 2 </option>
-              <option> 3 </option>
-            </select>
+            <div class="form-group">
+             <label for="inputAddress">Address:</label>
+             <input v-model="newMbr.address" type="text" class="form-control" id="inputAddress" placeholder="Street, City, State, Zip Code">
+           </div>
+           <div class="row">
+             <div class="col">
+                <label>Station Number:</label>
+                <select v-model="newMbr.stationNumber" class="form-control" rows="3">
+                  <option selected> Select station number... </option>
+                  <option> 1 </option>
+                  <option> 2 </option>
+                  <option> 3 </option>
+                </select>
+              </div>
+              <br>
+              <div class="col">
+                <label>Radio Number:</label>
+                <select v-model="newMbr.radioNumber" class="form-control" rows="3" placeholder="Select radio number...">
+                  <option selected> Select radio number... </option>
+                  <option> 1 </option>
+                  <option> 2 </option>
+                  <option> 3 </option>
+                </select>
+              </div>
+            </div>
             <br>
             <fieldset class="form-group">
               <div class="row">
                 <legend class="col-form-label col-sm-2 pt-0">Member is:</legend>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.isActive" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                  <input v-model="newMbr.isActive" class="form-check-input" type="radio" name="inlineRadioOptions5" id="active" value="1">
                   <label class="form-check-label" for="inlineRadio5">Active</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input v-model="newMbr.isActive" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                  <input v-model="newMbr.isActive" class="form-check-input" type="radio" name="inlineRadioOptions6" id="inactive" value="0">
                   <label class="form-check-label" for="inlineRadio6">Inactive</label>
                 </div>
                 </div>
@@ -179,7 +189,7 @@
             <div class="row">
               <div class="col">
                 <label>Start Date:</label>
-                <input v-model="newMbr.startDATE" type="text" class="form-control" placeholder="mm/dd/yyyy">
+                <input v-model="newMbr.startDate" type="text" class="form-control" placeholder="mm/dd/yyyy">
               </div>
               <div class="col">
                 <label>Position:</label>

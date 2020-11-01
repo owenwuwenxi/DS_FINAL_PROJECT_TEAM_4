@@ -9,8 +9,8 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'INSERT INTO MemberTable (firstName, lastName, radioNumber, stationNumber, preferredEmail)
-  VALUES (?, ?, ?, ?, ?)'
+  'INSERT INTO MemberTable (firstName, lastName, radioNumber, stationNumber, isActive, address, preferredEmail, dob, startDate, gender, dPosition)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
 );
 
 $stmt->execute([
@@ -18,7 +18,13 @@ $stmt->execute([
   $_POST['lastName'],
   $_POST['radioNumber'],
   $_POST['stationNumber'],
-  $_POST['preferredEmail']
+  $_POST['isActive'],
+  $_POST['address'],
+  $_POST['preferredEmail'],
+  $_POST['dob'],
+  $_POST['startDate'],
+  $_POST['gender'],
+  $_POST['dPosition']
 ]);
 
 // If needed, get auto-generated PK from DB
