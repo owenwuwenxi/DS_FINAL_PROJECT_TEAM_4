@@ -72,7 +72,7 @@
     <div class="container" id="reports">
       <div class="table-responsive">
         <div class="table-wrapper">
-      <table id="tableTask"  class="sortable table"  width="100%">
+      <table class="sortable table table-striped table-hover"  width="100%">
         <thead>
           <tr>
             <!-- <th>
@@ -91,7 +91,8 @@
           </tr>
         </thead>
           <tbody>
-            <tr v-for="reports in mbrList">
+
+            <tr class="item" v-for="reports in mbrList">
               <td class="firstName">{{reports.firstName}}</td>
               <td class="lastName">{{reports.lastName}}</td>
               <td class="radioNumber">{{reports.radioNumber}}</td>
@@ -103,10 +104,10 @@
 </div>
 </div>
 
-          <h1>Expired Certifications</h1>
+          <h1>Certifications</h1>
           <div class="container" id="reports">
             <div class= "table-responsive">
-            <table id="tableTask" class="sortable table table-striped table-hover">
+            <table class="sortable table table-striped table-hover">
               <thead>
                 <tr>
                   <th scope="col">First Name</th>
@@ -134,50 +135,33 @@
                 </tbody>
               </table>
 
-              <h1>Station #1</h1>
+              <h1>Stations</h1>
               <div class="container" id="reports">
                 <div class= "table-responsive">
-                <table id="tableTask" class="sortable table table-striped table-hover">
+                <table class="sortable table table-striped table-hover">
                   <thead>
                     <tr>
-                       <th>First Name</th>
-                       <th>Last Name</th>
                        <th>Station</th>
                        <th>Radio Number</th>
                        <th>Email</th>
-                       <th>Certification Name</th>
-                       <th>Expiration Date</th>
-
                     </tr>
                     <tbody id="reportsTableb2">
                       <tr v-for="reports in mbrList">
-                        <td class="firstName">{{reports.firstName}}</td>
-                        <td class="lastName">{{reports.lastName}}</td>
                         <td class="stationNumber">{{reports.stationNumber}}</td>
                         <td class="radioNumber">{{reports.radioNumber}}</td>
                         <td class="preferredEmail">{{reports.preferredEmail}}</td>
-                        <td class="certificationName">{{reports.certificationName}}</td>
-                        <td class="expirationDate">{{reports.expirationDate}}</td>
-                      </tr>
                     </tbody>
                   </table>
-        <form>
-      <button type="submit" class="btn btn-primary">add</button>
-      <button type="submit" class="btn btn-primary">edit</button>
-      <button type="submit" class="btn btn-primary">delete</button>
-    </form>
 
 	    <!-- END content -->
 
     <!-- Footer? Insert here -->
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/tablesort.min.js"></script>
-    <script>
-      new Tablesort(document.getElementById('tableTask'));
-    </script>
-<script src='js/tablesort.number.js'></script>
-<script src='js/tablesort.date.js'></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS
+  thank you to:   https://stackoverflow.com/questions/10683712/html-table-sort for a competent <table>
+    sort!!
+  </table>-->
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
