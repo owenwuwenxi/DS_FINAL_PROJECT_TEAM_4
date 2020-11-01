@@ -174,14 +174,7 @@ justify-content: space-evenly;
 
 }
 
-article {
-margin: 0 auto;
-display: flex;
-flex-wrap: wrap;
-padding: 5px;
-background: radial-gradient(circle, rgba(255,255,255,1) 0%, #ffc09f 35%, rgba(237,235,235,1) 100%);
 
-}
 
 btn-delete {
   background-color: darkred;
@@ -194,4 +187,16 @@ btn-delete {
   font-size: 18px;
   letter-spacing: 1px;
   transition: background-color .2s ease-out,color .2s ease-out,border-color .18s ease-out;
+}
+
+h2{
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid darkred;
+  border-radius: 20px;
+}
+
+h4{
+  text-align: center;
+  font-weight: bold;
 }
