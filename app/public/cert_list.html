@@ -75,14 +75,14 @@
     <h2>Certifications</h2>
     <!--edit functionality -->
 
-    <div id="certificationTable" >
+    <div id="memberCertificationVue" >
 
-      <form v-on:submit.prevent="createCertification()">
+      <form v-on:submit.prevent="editCertification()">
         <div class="form-group">
           <label for="exampleFormControlSelect2">Certification Name</label>
-          <select v-model="newCertification.certificationID" @change="activeCert()">
+          <select v-model="newCertification" @change="activeCert()">
             <option value="">Choose...</option>
-            <option v-for="certification in certList" :value="certification.certificationID">{{ certification.certificationName }}</option>
+            <option v-for="certification in certList" :value="certification">{{ certification.certificationName }}</option>
           </select>
         </div>
         <div class="form-group">
