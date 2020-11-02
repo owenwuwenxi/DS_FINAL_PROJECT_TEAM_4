@@ -56,9 +56,14 @@
           <li class="nav-item active">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="reports.html" id="DropDown">Reports</a>
-          </li>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Reports
+             </a>
+             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" href="reports.html">Standard report</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="expiredCertsReport.html">Expired Certifications</a>
         </ul>
       </div>
     </nav>
@@ -94,7 +99,7 @@
               <button class="btn btn-small btn-danger" v-on:click="deleteMbr(member.memberID)">Delete</button>
             </td>
             <td class="viewDetail">
-              <button class="btn btn-small" v-on:click="viewDetail(member.memberID)">View Details</button>
+              <a href="MemberDetails.html"><button class="btn btn-small btn-secondary" v-on:click="viewDetail(member.memberID)">View Details</button></a>
             </td>
           </tr>
         </tbody>
