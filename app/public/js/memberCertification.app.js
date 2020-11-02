@@ -274,6 +274,16 @@ var mcApp = new Vue ({
       this.certDetailView=true;
     },
 
+    viewCertList(){
+      this.certView="";
+      this.certDetailView=false;
+    },
+
+    viewMbrList(){
+      this.mbrView="";
+      this.mbrDetailView=false;
+    },
+
     addMemberCert(){
 
     },
