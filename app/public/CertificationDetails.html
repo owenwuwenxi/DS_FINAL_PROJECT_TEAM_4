@@ -71,7 +71,7 @@
         <option v-for="certification in certList">{{certification.certificationName}}</option>
       </select>
 
-      <button type="submit" class="btn btn-primary my-1" v-on:click="fetchmemberandcertification(certification.certificationID)">View Details</button>
+      <button type="submit" class="button" v-on:click="fetchmemberandcertification(certification.certificationID)">View Details</button>
     </form>
     <div class="container">
       <table class="table" id="certificationTable">
