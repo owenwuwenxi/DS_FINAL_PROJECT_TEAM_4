@@ -100,6 +100,7 @@
             <td class="viewDetail">
               <a href="#"><button class="btn btn-small btn-secondary" v-on:click="viewMbrDetail(member.memberID)">View Details</button></a>
             </td>
+
           </tr>
         </tbody>
       </table>
@@ -114,6 +115,7 @@
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
@@ -123,12 +125,47 @@
             <td v-if="mc.memberID==mbrView" class="renewedDate">{{mc.renewedDate}}</td>
             <td v-if="mc.memberID==mbrView" class="expirationDate">{{mc.expirationDate}}</td>
             <td v-if="mc.memberID==mbrView" class="expired">{{mc.expired ?  'Expired' : 'Active'}}</td>
+            <td class="deleteMC" v-if="mc.memberID==mbrView">
+              <button class="btn btn-small btn-danger" v-on:click="deleteMC(mc.mcID)">Delete</button>
+            </td>
           </tr>
 
         </tbody>
       </table>
     </div>
-  </div>
+
+  <form v-on:submit.prevent="editMember()">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Member Name</label>
+      <select v-model="newMbr" @change="activeMbr()">
+        <option value="">Choose...</option>
+        <option v-for="member in mbrList" :value="Member">{{member.firstName}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit First Name</label>
+      <input v-model="newMbr.firstName" type="text" class="form-control" id="editfirstName" placeholder="Enter new first name">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Last Name</label>
+      <input v-model="newMbr.lastName" type="text" class="form-control" id="editlastName" placeholder="Enter new Last name">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Email</label>
+      <input v-model="newMbr.preferredEmail" type="text" class="form-control" id="editEmail" placeholder="Enter new email address">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Radio</label>
+      <input v-model="newMbr.radioNumber" type="text" class="form-control" id="editRN" placeholder="Enter new Radio Number">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Station</label>
+      <input v-model="newMbr.stationNumber" type="text" class="form-control" id="editSE" placeholder="Enter another station number">
+    </div>
+    <button type="submit" class="btn btn-small btn-primary">Edit Member</button>
+  </form>
+</div>
+
 
     <!-- END content -->
 

@@ -138,6 +138,7 @@
             <th>Renewed Date</th>
             <th>Expiration Date</th>
             <th>Expired?</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="memberCertificationTableBody">
@@ -149,6 +150,9 @@
             <td v-if="mc.certificationID==certView" class="renewedDate">{{mc.renewedDate}}</td>
             <td v-if="mc.certificationID==certView" class="expirationDate">{{mc.expirationDate}}</td>
             <td v-if="mc.certificationID==certView" class="expired">{{mc.expired ?  'Expired' : 'Active'}}</td>
+            <td class="deleteTd" v-if="mc.certificationID==certView">
+              <button class="btn btn-small btn-danger" v-on:click="deleteMC(mc.mcID)">Delete</button>
+            </td>
           </tr>
 
         </tbody>
