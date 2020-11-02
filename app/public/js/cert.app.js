@@ -11,6 +11,7 @@ var certificationApp = new Vue({
     standardExpiry: ''
   },
 
+
 },
 methods: {
   fetchCertification(){
@@ -87,10 +88,14 @@ methods: {
       certificationName: '',
       standardExpiry: ''
     }
-  }
-},
-created(){
-  this.fetchCertification();
+  },
+  activeCert(){
 
   }
-});
+},
+
+  created(){
+    this.fetchCertification();
+
+    }
+  });
