@@ -9,14 +9,7 @@ var certificationApp = new Vue({
     certifyingAgency: '',
     certificationName: '',
     standardExpiry: ''
-  },
-  selectedCert:{
-    certificationID: '',
-    certifyingAgency: '',
-    certificationName: '',
-    standardExpiry: ''
   }
-
 
 },
 methods: {
@@ -75,8 +68,8 @@ methods: {
     })
     .then( response => {
       if(response.status == 409 ){
-        alert("Can't delete");
-        return Promise.reject(new Error('Nope'));
+        alert("A member has this certification. Please delete the member's certification first.");
+        return Promise.reject(new Error('Invalid Delete'));
       }
       return response.json() })
     .then( json => {

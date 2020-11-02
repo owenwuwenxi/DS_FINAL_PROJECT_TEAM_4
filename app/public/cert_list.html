@@ -81,7 +81,7 @@
           <label for="exampleFormControlSelect2">Certification Name</label>
           <select v-model="newCertification.certificationID" @change="activeCert()">
             <option value="">Choose...</option>
-            <option v-for="certification in certList" :value="certification.certificationName">{{ certification.certificationName}}</option>
+            <option v-for="certification in certList" :value="certification.certificationID">{{ certification.certificationName }}</option>
           </select>
         </div>
         <div class="form-group">
@@ -97,10 +97,10 @@
           <input v-model="newCertification.standardExpiry" type="text" class="form-control" id="editSE" placeholder="Enter new standard expiry">
         </div>
 
-
+        <button class="btn btn-small btn-primary">Edit Certification</button>
       </form>
 
-      <button class="btn btn-small btn-primary">Edit Certification</button>
+
 
       <table class="table">
         <thead>
