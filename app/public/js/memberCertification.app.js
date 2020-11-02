@@ -111,7 +111,7 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList = json;
+          this.mcList = json[0];
           this.newMC = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
