@@ -190,6 +190,21 @@ var mcApp = new Vue ({
       })
     },
 
+    deleteMbr(memberID) {
+          fetch('api/member/delete.php',{
+            method:'POST',
+            body: JSON.stringify({"memberID":memberID}),
+            headers:{
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrList = json;
+            //do the right stuff here
+        });
+    },
+
     newMCData(){
       return {
         memberID:'',
