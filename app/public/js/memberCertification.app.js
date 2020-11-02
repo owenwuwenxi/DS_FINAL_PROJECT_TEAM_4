@@ -6,6 +6,10 @@ var mcApp = new Vue ({
     certList:[],
     mbrList:[],
     mbrNmcList:[],
+    mbrView:"",
+    mbrDetailView:false,
+    certView:"",
+    certDetailView:false,
 
     newMC:{
       memberID:'',
@@ -18,6 +22,12 @@ var mcApp = new Vue ({
       certificationID:'',
       renewedDate:'',
       expirationDate:''
+    },
+    selectedCert:{
+      certificationID: '',
+      certifyingAgency: '',
+      certificationName: '',
+      standardExpiry: ''
     }
   },
 
@@ -72,15 +82,6 @@ var mcApp = new Vue ({
             .then( json => {
               this.mcList = json;
               console.log(this.mcList);
-              //for (var i = 0; i < mcList.length; i++) {
-                //mcList[i]
-                //if (expired==1) {
-                  //expired="Expired"
-                //}
-                //else {
-                  //expired="Not Expired"
-                //}
-              //}
             });
             fetch('api/certifications/')
             .then(response => response.json())
@@ -130,6 +131,17 @@ var mcApp = new Vue ({
         expired:''
       }
     },
+
+    viewMbrDetail(memberID){
+      this.mbrView=memberID;
+      this.mbrDetailView=true;
+    },
+
+    viewCertDetail(certificationID){
+      this.certView=certificationID;
+      this.certDetailView=true;
+    },
+
     addMemberCert(){
 
     }
