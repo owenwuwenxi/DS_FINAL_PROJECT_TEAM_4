@@ -12,14 +12,14 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE Certification (certifyingAgency, certificationName, standardExpiry)
-  VALUES (?, ?, ?)'
+  'UPDATE Certification SET certifyingAgency=?, certificationName=?, standardExpiry=? WHERE certificationID=?'
 );
 
 $stmt->execute([
   $_POST['certifyingAgency'],
   $_POST['certificationName'],
-  $_POST['standardExpiry']
+  $_POST['standardExpiry'],
+  $_POST['certificationID']
 ]);
 
 // If needed, get auto-generated PK from DB
