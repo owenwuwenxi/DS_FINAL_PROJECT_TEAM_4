@@ -34,8 +34,6 @@
              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                <a class="dropdown-item" href="member_list.html">Member List</a>
                <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="MemberDetails.html">Member Details</a>
-               <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="create_mbr.html">Create Member</a>
                <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="addCertToMbr.html">Add Certification to Member</a>
@@ -53,7 +51,7 @@
                <a class="dropdown-item" href="create_cert.html">Create Certifications</a>
              </div>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
           </li>
           <li class="nav-item dropdown">
@@ -76,14 +74,12 @@
 
 
     <h2>Members</h2>
-    <div id="member" >
+    <div id="memberCertificationVue">
+    <div class="container" v-if="!mbrDetailView">
       <table class="table">
         <thead>
           <tr>
-    <div class="container">
-      <table class="table">
-        <thead>
-          <tr>
+            <th scope="col">Member ID</th>
             <th scope="col">First Name</th>
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
@@ -96,6 +92,7 @@
         <tbody >
 
           <tr v-for="member in mbrList">
+          <td class="firstName">{{ member.memberID}}</td>
           <td class="firstName">{{ member.firstName}}</td>
           <td class="lastName">{{ member.lastName}}</td>
           <td class="preferredEmail">{{ member.preferredEmail }}</td>
@@ -105,13 +102,37 @@
               <button class="btn btn-small btn-danger" v-on:click="deleteMbr(member.memberID)">Delete</button>
             </td>
             <td class="viewDetail">
-              <a href="MemberDetails.html"><button class="btn btn-small btn-secondary" v-on:click="viewDetail(member.memberID)">View Details</button></a>
+              <a href="#"><button class="btn btn-small btn-secondary" v-on:click="viewMbrDetail(member.memberID)">View Details</button></a>
             </td>
           </tr>
         </tbody>
       </table>
-
     </div>
+
+    <div class="container" v-if="mbrDetailView">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Certification ID</th>
+            <th>Certification Name</th>
+            <th>Renewed Date</th>
+            <th>Expiration Date</th>
+            <th>Expired?</th>
+          </tr>
+        </thead>
+        <tbody id="memberCertificationTableBody">
+          <tr v-for="mc in mcList">
+            <td v-if="mc.memberID==mbrView" class="certificationID">{{mc.certificationID}}</td>
+            <td v-if="mc.memberID==mbrView" class="certificationName">{{mc.certificationName}}</td>
+            <td v-if="mc.memberID==mbrView" class="renewedDate">{{mc.renewedDate}}</td>
+            <td v-if="mc.memberID==mbrView" class="expirationDate">{{mc.expirationDate}}</td>
+            <td v-if="mc.memberID==mbrView" class="expired">{{mc.expired ?  'Expired' : 'Active'}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
 
     <!-- END content -->
 
@@ -124,6 +145,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/member.app.js"></script>
+    <!--<script src="js/member.app.js"></script> -->
+    <script src="js/memberCertification.app.js"></script>
   </body>
 </html>

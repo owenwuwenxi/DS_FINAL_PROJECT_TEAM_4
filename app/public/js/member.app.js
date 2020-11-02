@@ -3,7 +3,6 @@ var mbrApp = new Vue ({
   data: {
 
     mbrList:[],
-
     newMbr:{
       memberID: '',
       firstName:'',
@@ -62,10 +61,6 @@ var mbrApp = new Vue ({
             this.mbrList = json;
             //do the right stuff here
         });
-    },
-
-    viewDetail(memberID){
-
     },
 
     newMBRData(){
