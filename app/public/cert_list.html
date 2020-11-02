@@ -58,9 +58,16 @@
           <li class="nav-item">
             <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="reports.html" id="DropDown">Reports</a>
-          </li>
+          <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Reports
+           </a>
+           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+             <a class="dropdown-item" href="reports.html">Standard report</a>
+             <div class="dropdown-divider"></div>
+             <a class="dropdown-item" href="expiredCertsReport.html">Expired Certifications</a>
+      </ul>
+
         </ul>
       </div>
     </nav>
@@ -72,26 +79,26 @@
     <form>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Certification Name</label>
-        <select>
+        <select v-model="selectedCert.certificationName" @change="editCert()">
           <option value="">Choose...</option>
-          <option v-for="certification in certList" v-on:click="activeCert = certification">{{ certification.certificationName }}</option>
+          <option v-for="certification in certList" v-on:click="activeCert = certification" :value="selectedCert.certificationName">{{ certification.certificationName }}</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Edit Agency</label>
-        <input v-model="selectedCert.agency" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new agency">
+        <input v-model="selectedCert.certifyingAgency" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new agency">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Edit Name</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new name">
+        <input v-model="selectedCert.certificationName" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new name">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Edit Standard Expiry</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new standard expiry">
+        <input v-model="selectedCert.standardExpiry" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter new standard expiry">
       </div>
   </form>
 
-      <button class="btn btn-small btn-primary" v-on:click="editCert(certification.certificationID)">Edit Certification</button>
+      <button class="button" v-on:click="editCert(certification.certificationID)">Edit Certification</button>
 
       <table class="table">
         <thead>
@@ -111,7 +118,10 @@
             <td>{{ certification.certificationName }}</td>
             <td>{{ certification.standardExpiry }}</td>
             <td class="deleteTd">
-              <button class="btn btn-small btn-secondary" v-on:click="deleteCert(certification.certificationID)">Delete</button>
+              <button class="btn btn-small btn-danger" v-on:click="deleteCert(certification.certificationID)">Delete</button>
+            </td>
+            <td class="viewDetail">
+              <a href="CertificationDetails.html"><button class="btn btn-small btn-secondary" v-on:click="viewDetail(certification.certificationID)">View Details</button></a>
             </td>
             <!--new stuff-->
           </tr>
