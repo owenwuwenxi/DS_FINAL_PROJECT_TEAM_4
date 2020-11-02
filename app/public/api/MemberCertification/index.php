@@ -6,7 +6,8 @@ require 'common.php';
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$sql = 'SELECT *, NOW()>expirationDate as expired FROM MemberCertification';
+$sql = 'SELECT Certification.certificationName, MemberTable.firstName, MemberTable.lastName, MemberTable.isActive, MemberCertification.certificationID, MemberCertification.memberID, MemberCertification.renewedDate, MemberCertification.expirationDate, NOW()>expirationDate as expired FROM MemberCertification
+JOIN Certification ON Certification.certificationID = MemberCertification.certificationID JOIN MemberTable ON MemberTable.memberID = MemberCertification.memberID';
 $vars = [];
 #May not be Now(), but it's that idea
 
