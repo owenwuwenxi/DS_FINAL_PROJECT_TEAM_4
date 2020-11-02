@@ -138,8 +138,6 @@ INSERT INTO UserTable (email, user_Password) VALUES
 
 ("lilwayne@ocfire.com", "rapper2020!2000"),
 
- ("marshmello@ocfire.com", "NoAudienceNoConcert&"),
+("marshmello@ocfire.com", "NoAudienceNoConcert&"),
 
- ("datboi@ocfire.com", "DATboi");
-
-join Certification, MemberCertification
+("datboi@ocfire.com", "DATboi");
