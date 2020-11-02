@@ -111,7 +111,7 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList = json;
+          this.mcList = json[0];
           this.newMC = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
@@ -188,6 +188,21 @@ var mcApp = new Vue ({
         this.certList = json;
         //do the right stuff here
       })
+    },
+
+    deleteMbr(memberID) {
+          fetch('api/member/delete.php',{
+            method:'POST',
+            body: JSON.stringify({"memberID":memberID}),
+            headers:{
+              "Content-Type": "application/json; charset=utf-8"
+            }
+          })
+          .then( response => response.json() )
+          .then( json => {
+            this.mbrList = json;
+            //do the right stuff here
+        });
     },
 
     newMCData(){
