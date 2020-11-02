@@ -238,7 +238,7 @@ var mcApp = new Vue ({
         expired:''
       }
     },
-    newMBRData(){
+    newMbrData(){
       return {
         memberID:'',
         firstName:'',

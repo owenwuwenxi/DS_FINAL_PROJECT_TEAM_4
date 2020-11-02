@@ -20,7 +20,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 // Note the use of parameterized statements to avoid injection
 $stmt = $db->prepare(
-  'UPDATE MemberTable firstName = ?, lastName = ?, radioNumber = ?, stationNumber = ?, preferredEmail = ?'
+  'UPDATE MemberTable SET firstName = ?, lastName = ?, radioNumber = ?, stationNumber = ?, preferredEmail = ? WHERE memberID=?'
 );
 
 $stmt->execute([
@@ -28,8 +28,9 @@ $stmt->execute([
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['radioNumber'],
-  $_POST['stationNumber']
-  $_POST['preferredEmail']
+  $_POST['stationNumber'],
+  $_POST['preferredEmail'],
+  $_POST['memberID']
 ]);
 
 $memberTable=$stmt->fetchAll();
