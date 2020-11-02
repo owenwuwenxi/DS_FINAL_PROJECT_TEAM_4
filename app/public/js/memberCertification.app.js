@@ -37,10 +37,23 @@ var mcApp = new Vue ({
       certifyingAgency: '',
       certificationName: '',
       standardExpiry: ''
-    }
+    },
+    newMbr:{
+      memberID: '',
+      firstName:'',
+      lastName:'',
+      radioNumber:'',
+      stationNumber:'',
+      isActive: '',
+      address: '',
+      preferredEmail:'',
+      dob: '',
+      startDate: '',
+      gender: '',
+      dPosition:''
   },
 
-
+},
   methods:{
     fetchMemberCertification() {
       fetch('api/memberCertification/')
@@ -111,7 +124,7 @@ var mcApp = new Vue ({
         .then( response => response.json() )
         .then( json => {
           console.log("Returned from post:", json);
-          this.mcList = json;
+          this.mcList = json[0];
           this.newMC = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
@@ -134,6 +147,24 @@ var mcApp = new Vue ({
       });
       console.log("Creating (POSTing)...!");
       console.log(this.newCertification);
+    },
+
+    editMember(){
+      fetch('api/member/update.php', {
+        method: 'POST',
+        body: JSON.stringify(this.newMbr),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        this.mbrList = json;
+        this.newMbr = this.newMbrData();
+      });
+      console.log("Creating (POSTing)...!");
+      console.log(this.newMbr);
     },
 
     createCertification(){
@@ -214,6 +245,22 @@ var mcApp = new Vue ({
         expired:''
       }
     },
+    newMBRData(){
+      return {
+        memberID:'',
+        firstName:'',
+        lastName:'',
+        radioNumber:'',
+        stationNumber:'',
+        isActive:'',
+        address:'',
+        preferredEmail:'',
+        dob:'',
+        startDate:'',
+        gender:'',
+        dPosition:'',
+      }
+    },
 
     newCertificationData() {
       return {
@@ -241,6 +288,10 @@ var mcApp = new Vue ({
   activeCert(){
 
   },
+  activeMbr(){
+
+  },
+
 
 },
 
