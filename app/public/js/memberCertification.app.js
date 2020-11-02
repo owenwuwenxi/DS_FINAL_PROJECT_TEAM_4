@@ -17,12 +17,21 @@ var mcApp = new Vue ({
       renewedDate:'',
       expirationDate:''
     },
+
+    newCertification: {
+      certificationID: '',
+      certifyingAgency: '',
+      certificationName: '',
+      standardExpiry: ''
+    },
+
     selectedMemberCert:{
       memberID:'',
       certificationID:'',
       renewedDate:'',
       expirationDate:''
     },
+
     selectedCert:{
       certificationID: '',
       certifyingAgency: '',
@@ -108,6 +117,44 @@ var mcApp = new Vue ({
       console.log("Creating (POSTing)...!");
       console.log(this.selectedMemberCert);
     },
+
+    editCertification(){
+      fetch('api/certifications/update_cert.php', {
+        method: 'POST',
+        body: JSON.stringify(this.newCertification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        this.certList = json;
+        this.newCertification = this.newCertificationData();
+      });
+      console.log("Creating (POSTing)...!");
+      console.log(this.newCertification);
+    },
+
+    createCertification(){
+      fetch('api/certifications/create_cert.php', {
+        method: 'POST',
+        body: JSON.stringify(this.newCertification),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+        console.log("Returned from post:", json);
+        this.certList = json;
+        this.newCertification = this.newCertificationData();
+      });
+      console.log("Creating (POSTing)...!");
+      console.log(this.newCertification);
+    },
+
+
     deleteMC(mcID) {
       fetch('api/memberCertification/delete.php',{
         method:'POST',
@@ -122,6 +169,27 @@ var mcApp = new Vue ({
         //do the right stuff here
     });
     },
+
+    deleteCert(certificationID) {
+      fetch('api/certifications/delete_cert.php',{
+        method:'POST',
+        body: JSON.stringify({"certificationID":certificationID}),
+        headers:{
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => {
+        if(response.status == 409 ){
+          alert("A member has this certification. Please delete the member's certification first.");
+          return Promise.reject(new Error('Invalid Delete'));
+        }
+        return response.json() })
+      .then( json => {
+        this.certList = json;
+        //do the right stuff here
+      })
+    },
+
     newMCData(){
       return {
         memberID:'',
@@ -129,6 +197,15 @@ var mcApp = new Vue ({
         renewedDate:'',
         expirationDate:'',
         expired:''
+      }
+    },
+
+    newCertificationData() {
+      return {
+        certificationID: '',
+        certifyingAgency: '',
+        certificationName: '',
+        standardExpiry: ''
       }
     },
 
@@ -144,12 +221,17 @@ var mcApp = new Vue ({
 
     addMemberCert(){
 
-    }
+    },
+
+  activeCert(){
+
   },
+
+},
 
       created() {
         this.fetchmemberandcertification();
 
         // this.fetchMemberCertification();
       }
-    })
+    });
