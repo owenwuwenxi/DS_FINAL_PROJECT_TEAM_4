@@ -74,29 +74,29 @@
       <form method="post" v-on:submit.prevent="createMemberCertification()">
         <fieldset>
           <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Member's ID</label>
-          <select v-model="selectedMemberCert.memberID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+          <select v-model="newMC.memberID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
             <option>Choose...</option>
             <option v-for="mc in mbrList" :value="mc.memberID">{{mc.memberID}}</option>
           </select>
           <br>
 
           <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification's ID</label>
-          <select v-model="selectedMemberCert.certificationID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+          <select v-model="newMC.certificationID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
             <option>Choose...</option>
             <option v-for="mc in certList" :value="mc.certificationID">{{mc.certificationID}}</option>
           </select>
           <br>
 
           <label for="RenewedDate">Renewed Date</label>
-          <input type="text" name="RenewedDate" v-model="selectedMemberCert.renewedDate" id="RenewedDate" placeholder="08/2020">
+          <input type="text" name="RenewedDate" v-model="newMC.renewedDate" id="RenewedDate" placeholder="08/2020">
           <br>
 
           <label for="ExperiationDate">Expiration Date</label>
-          <input type="text" name="ExperiationDate" v-model="selectedMemberCert.expirationDate" id="ExperiationDate" placeholder="08/2022">
+          <input type="text" name="ExperiationDate" v-model="newMC.expirationDate" id="ExperiationDate" placeholder="08/2022">
           <br>
         </fieldset>
         <br>
-        <input type="submit" value="Add Certification" class="button" id="submitNewCertification">
+        <input type="submit" value="Add Certification" class="button" id="submitNewMC">
 
     <!-- END content -->
 

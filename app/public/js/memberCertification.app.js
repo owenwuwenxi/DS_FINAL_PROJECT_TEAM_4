@@ -25,13 +25,6 @@ var mcApp = new Vue ({
       standardExpiry: ''
     },
 
-    selectedMemberCert:{
-      memberID:'',
-      certificationID:'',
-      renewedDate:'',
-      expirationDate:''
-    },
-
     selectedCert:{
       certificationID: '',
       certifyingAgency: '',
@@ -103,7 +96,7 @@ var mcApp = new Vue ({
       createMemberCertification(){
         fetch('api/memberCertification/create.php',{
           method:'POST',
-          body: JSON.stringify(this.selectedMemberCert),
+          body: JSON.stringify(this.newMC),
           headers:{
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -115,7 +108,7 @@ var mcApp = new Vue ({
           this.newMC = this.newMCData();
       });
       console.log("Creating (POSTing)...!");
-      console.log(this.selectedMemberCert);
+      console.log(this.newMC);
     },
 
     editCertification(){
