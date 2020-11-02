@@ -35,8 +35,6 @@
                <a class="dropdown-item" href="member_list.html">Member List</a>
                <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="create_mbr.html">Create Member</a>
-               <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="addCertToMbr.html">Add Certification to Member</a>
              </div>
           </li>
           <li class="nav-item dropdown">
@@ -46,13 +44,11 @@
              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                <a class="dropdown-item" href="cert_list.html">Certification List</a>
                <div class="dropdown-divider"></div>
-               <a class="dropdown-item" href="CertificationDetails.html">Certification Details</a>
-               <div class="dropdown-divider"></div>
                <a class="dropdown-item" href="create_cert.html">Create Certifications</a>
              </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="memberCertification.html" id="DropDown">Members' Certifications</a>
+            <a class="nav-link" href="addCertToMbr.html" id="DropDown">Add Certification to Member</a>
           </li>
           <li class="nav-item dropdown">
              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -104,6 +100,7 @@
             <td class="viewDetail">
               <a href="#"><button class="btn btn-small btn-secondary" v-on:click="viewMbrDetail(member.memberID)">View Details</button></a>
             </td>
+
           </tr>
         </tbody>
       </table>
@@ -132,7 +129,39 @@
         </tbody>
       </table>
     </div>
-  </div>
+
+  <form v-on:submit.prevent="editMember()">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Member Name</label>
+      <select v-model="newMbr" @change="activeMbr()">
+        <option value="">Choose...</option>
+        <option v-for="member in mbrList" :value="Member">{{member.firstName}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit First Name</label>
+      <input v-model="newMbr.firstName" type="text" class="form-control" id="editfirstName" placeholder="Enter new first name">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Last Name</label>
+      <input v-model="newMbr.lastName" type="text" class="form-control" id="editlastName" placeholder="Enter new Last name">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Email</label>
+      <input v-model="newMbr.preferredEmail" type="text" class="form-control" id="editEmail" placeholder="Enter new email address">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Radio</label>
+      <input v-model="newMbr.radioNumber" type="text" class="form-control" id="editRN" placeholder="Enter new Radio Number">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Edit Station</label>
+      <input v-model="newMbr.stationNumber" type="text" class="form-control" id="editSE" placeholder="Enter another station number">
+    </div>
+    <button type="submit" class="btn btn-small btn-primary">Edit Member</button>
+  </form>
+</div>
+
 
     <!-- END content -->
 
