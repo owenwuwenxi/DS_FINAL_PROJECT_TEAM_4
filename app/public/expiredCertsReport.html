@@ -68,8 +68,10 @@
         <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
           <option>Choose...</option>
           <option v-for="reports in mbrList">{{reports.certificationName}}</option>
-          </select>
+        </select>
       <br>
+
+      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search certifications...">
 
       <div class="table-responsive">
       <table class="sortable table"  width="100%">
@@ -101,9 +103,28 @@
               </div>
 
               </table>
-
-
-
+<!--
+              <script>
+              function myFunction() {
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("reportsTableBody");
+                tr = table.getElementsByTagName("tr");
+                for (i = 0; i < tr.length; i++) {
+                  td = tr[i].getElementsByTagName("td")[2];
+                  if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                      tr[i].style.display = "";
+                    } else {
+                      tr[i].style.display = "none";
+                    }
+                  }
+                }
+              }
+              </script>
+-->
 	    <!-- END content -->
 
     <!-- Footer? Insert here -->
