@@ -27,7 +27,7 @@ preferredEmail VARCHAR(255) NOT NULL,
 
 dob DATE DEFAULT NULL,
 
-startDate CHAR(8) NOT NULL,
+startDate DATE NOT NULL,
 
 gender ENUM("Female", "Male", "Other", "Prefer Not to Disclose") NOT NULL DEFAULT "Prefer Not to Disclose",
 
@@ -61,9 +61,9 @@ certificationID INT (5),
 FOREIGN KEY (memberID) REFERENCES MemberTable(memberID) ON DELETE CASCADE,
 FOREIGN KEY (certificationID) REFERENCES Certification(certificationID),
 
-renewedDate CHAR(8),
+renewedDate DATE NOT NULL,
 
-expirationDate CHAR(8) NOT NULL
+expirationDate DATE NOT NULL
 
 );
 
@@ -80,11 +80,11 @@ user_Password VARCHAR (255) NOT NULL
 
 
 INSERT INTO MemberTable(memberID, firstName, lastName, radioNumber, stationNumber, isActive, address, preferredEmail, dob, startDATE, gender, dPosition)
-VALUES  (00001, "Kathyrn", "Pryde", "A-1", "all", "Active", "1123 Xavier School Drive, Watkinsville, GA 30677", "kpryde@ocfire.com", "10/4/1975", "9/1/2000", "Female", "Chief"),
+VALUES  (00001, "Kathyrn", "Pryde", "A-1", "all", "Active", "1123 Xavier School Drive, Watkinsville, GA 30677", "kpryde@ocfire.com", "1975-10-4", "2000-9-1", "Female", "Chief"),
 
-(00002, "Piotr", "Rasputin", 841, 8, "Active", "A31 Mother Russia Road, Seattle, WA 98133", "rpiotr@ocfire.com", "10/5/1972", "05/15/2015", "Male", "Level 2 Firefighter"),
+(00002, "Piotr", "Rasputin", 841, 8, "Active", "A31 Mother Russia Road, Seattle, WA 98133", "rpiotr@ocfire.com", "1972-10-5", "2015-5-15", "Male", "Level 2 Firefighter"),
 
- (00003, "Warren", "Worthington", 122, 1, "Active", "1140 Experiment Station Rd Watkinsville, GA", "warrenworthington@ocfire.com", "09/23/1965", "08/24/2018", "Male", "level 1 firefighter");
+ (00003, "Warren", "Worthington", 122, 1, "Active", "1140 Experiment Station Rd Watkinsville, GA", "warrenworthington@ocfire.com", "1965-9-23", "2018-8-24", "Male", "level 1 firefighter");
 
 
 
@@ -102,7 +102,7 @@ INSERT INTO Certification (certificationID, certifyingAgency, certificationName,
 
 (00005, "Georgia POST Academy", "POST", 5),
 
- (00006, "Hazmat Academy", "HAZMAT", 3),
+(00006, "Hazmat Academy", "HAZMAT", 3),
 
  (00007, "EMT College", "EMT-Adv", 5);
 
@@ -112,19 +112,19 @@ INSERT INTO Certification (certificationID, certifyingAgency, certificationName,
 
 INSERT INTO MemberCertification (memberID, certificationID, renewedDate, expirationDate) VALUES
 
-(00001, 00004, "08/2018", "08/2020"),
+(00001, 00004, "2018-08-01", "2020-08-01"),
 
- (00001, 00002, "07/2017", "07/2019"),
+(00001, 00002, "2017-07-13", "2019-07-13"),
 
- (00001, 00006, "05/2016", "02/2020"),
+(00001, 00006, "2016-02-05", "2020-02-05"),
 
- (00002, 00007, "09/2020", "09/2025"),
+(00002, 00007, "2020-09-10", "2025-09-10"),
 
- (00002, 00001, "07/2019", "07/2021"),
+(00002, 00001, "2019-07-03", "2021-07-03"),
 
- (00003, 00001, "07/2020", "07/2022"),
+(00003, 00001, "2020-07-02", "2022-07-02"),
 
-(00003, 00003, "08/2020", "08/2023");
+(00003, 00003, "2020-08-08", "2023-08-08");
 
 
 

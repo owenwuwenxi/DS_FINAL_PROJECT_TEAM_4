@@ -64,12 +64,8 @@
     <h2>Expired Certifications</h2>
     <div class="container" id="reports">
       <form class ="form-inline">
-        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification</label>
-        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-          <option>Choose...</option>
-          <option v-for="reports in mbrList">{{reports.certificationName}}</option>
-        </select>
-      <br>
+        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Search For Certification</label>
+
 
       <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search certifications...">
 
@@ -87,16 +83,18 @@
                    <th scope="col">Certification Name</th>
                    <th scope="col">Certification Agency</th>
                    <th scope="col">Expiration Date</th>
+                   <th scope="col">Expired?</th>
 
 
                 </tr>
                 <tbody id="reportsTableBody">
-                  <tr v-for="reports in mbrList">
-                    <td class="firstName">{{reports.firstName}}</td>
-                    <td class="lastName">{{reports.lastName}}</td>
-                    <td class="certificationName">{{reports.certificationName}}</td>
-                    <td class="certifyingAgency">{{reports.certifyingAgency}}</td>
-                    <td class="expirationDate">{{reports.expirationDate}}</td>
+                  <tr v-for="reports in mcList">
+                    <td v-if="reports.expired==1" class="firstName">{{reports.firstName}}</td>
+                    <td v-if="reports.expired==1" class="lastName">{{reports.lastName}}</td>
+                    <td v-if="reports.expired==1" class="certificationName">{{reports.certificationName}}</td>
+                    <td v-if="reports.expired==1" class="certifyingAgency">{{reports.certifyingAgency}}</td>
+                    <td v-if="reports.expired==1" class="expirationDate">{{reports.expirationDate}}</td>
+                    <td v-if="reports.expired==1" class="expired">{{reports.expired? "Expired":"Active"}}</td>
 
                   </tr>
                 </tbody>
