@@ -62,11 +62,11 @@
         </ul>
       </div>
     </nav>
-    <h2>Reports</h2>
+
     <div class="container" id="reports">
-      <div class="table-responsive">
-        <div class="table-wrapper">
-      <table class="sortable table table-striped table-hover"  width="100%">
+      <h2>Reports</h2>
+
+      <table class="sortable table table-striped table-hover" >
         <thead>
           <tr>
             <!-- <th>
@@ -95,12 +95,10 @@
             </tr>
           </tbody>
         </table>
-</div>
-</div>
+
 
           <h2>Certifications</h2>
-          <div class="container" id="reports">
-            <div class= "table-responsive">
+          <div id="certifications">
             <table class="sortable table table-striped table-hover">
               <thead>
                 <tr>
@@ -128,25 +126,28 @@
                   </tr>
                 </tbody>
               </table>
-
+</div>
               <h2>Stations</h2>
-              <div class="container" id="reports">
-                <div class= "table-responsive">
+              <div id="stations">
+
                 <table class="sortable table table-striped table-hover">
                   <thead>
                     <tr>
                        <th>Station</th>
                        <th>Radio Number</th>
                        <th>Email</th>
-                    </tr>
+                         </tr>
+                         </thead>
                     <tbody id="reportsTableb2">
                       <tr v-for="reports in mbrList">
                         <td class="stationNumber">{{reports.stationNumber}}</td>
                         <td class="radioNumber">{{reports.radioNumber}}</td>
                         <td class="preferredEmail">{{reports.preferredEmail}}</td>
+                      </tr>
                     </tbody>
                   </table>
-
+</div>
+</div>
 	    <!-- END content -->
 
     <!-- Footer? Insert here -->

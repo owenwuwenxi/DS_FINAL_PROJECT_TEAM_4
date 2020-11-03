@@ -75,7 +75,7 @@
         <div class="form-group">
           <label for="exampleFormControlSelect2">Certification Name</label>
           <select v-model="newCertification" @change="activeCert()">
-            <option value="">Choose...</option>
+            <option value="" disabled selected hidden>Choose...</option>
             <option v-for="certification in certList" :value="certification">{{ certification.certificationName }}</option>
           </select>
         </div>

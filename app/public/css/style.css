@@ -162,17 +162,6 @@ section {
     font-size: 22px
       padding: 2.0em 3.0em 2.0em 2.0em;
 }
-.container {
-max-width: 800px;
-margin: 0 auto;
-display: flex;
-flex-wrap: wrap;
-justify-content: space-evenly;
-
-
-
-
-}
 
 
 
