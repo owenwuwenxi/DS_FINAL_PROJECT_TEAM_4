@@ -99,7 +99,7 @@
           <label for="exampleFormControlInput1">Edit Station</label>
           <input v-model="newMbr.stationNumber" type="text" class="form-control" id="editSE" placeholder="Enter another station number">
         </div>
-        <button type="submit" class="btn btn-small btn-primary">Edit Member</button>
+        <button type="submit" class="button">Edit Member</button>
       </form>
 
     <div class="container" v-if="!mbrDetailView">
@@ -157,7 +157,7 @@
             <td v-if="mc.memberID==mbrView" class="expirationDate">{{mc.expirationDate}}</td>
             <td v-if="mc.memberID==mbrView" class="expired">{{mc.expired ?  'Expired' : 'Active'}}</td>
             <td class="deleteMC" v-if="mc.memberID==mbrView">
-              <button class="btn btn-small btn-danger" v-on:click="deleteMC(mc.mcID)">Delete</button>
+              <button class="btn btn-small btn-secondary" v-on:click="deleteMC(mc.mcID)">Delete</button>
             </td>
           </tr>
         </tbody>
