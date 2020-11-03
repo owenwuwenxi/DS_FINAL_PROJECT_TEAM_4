@@ -75,7 +75,7 @@
         <div class="form-group">
           <label for="exampleFormControlSelect2">Member Name</label>
           <select v-model="newMbr" @change="activeMbr()">
-            <option value="">Choose...</option>
+            <option value="" disabled selected hidden>Choose...</option>
             <option v-for="member in mbrList" :value="member">{{member.firstName}} {{member.lastName}}</option>
           </select>
         </div>
