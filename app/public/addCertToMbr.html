@@ -75,24 +75,24 @@
         <fieldset>
           <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Member</label>
           <select v-model="newMC.memberID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
+            <option value="" disabled selected hidden>Choose...</option>
             <option v-for="mc in mbrList" :value="mc.memberID">{{mc.firstName}} {{mc.lastName}}</option>
           </select>
           <br>
 
           <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Certification</label>
           <select v-model="newMC.certificationID" @change="addMemberCert()" class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-            <option>Choose...</option>
+            <option value="" disabled selected hidden>Choose...</option>
             <option v-for="mc in certList" :value="mc.certificationID">{{mc.certificationName}}</option>
           </select>
           <br>
 
           <label for="RenewedDate">Renewed Date</label>
-          <input type="text" name="RenewedDate" v-model="newMC.renewedDate" id="RenewedDate" placeholder="08/2020">
+          <input type="date" name="RenewedDate" v-model="newMC.renewedDate" id="RenewedDate">
           <br>
 
           <label for="ExperiationDate">Expiration Date</label>
-          <input type="text" name="ExperiationDate" v-model="newMC.expirationDate" id="ExperiationDate" placeholder="08/2022">
+          <input type="date" name="ExperiationDate" v-model="newMC.expirationDate" id="ExperiationDate">
           <br>
         </fieldset>
         <br>

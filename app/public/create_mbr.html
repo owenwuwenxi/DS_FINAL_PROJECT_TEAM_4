@@ -155,7 +155,7 @@
              <div class="col">
                 <label>Station Number:</label>
                 <select v-model="newMbr.stationNumber" class="form-control" rows="3">
-                  <option selected> Select station number... </option>
+                  <option value="" disabled selected hidden>Choose...</option>
                   <option> 1 </option>
                   <option> 2 </option>
                   <option> 3 </option>
@@ -165,7 +165,7 @@
               <div class="col">
                 <label>Radio Number:</label>
                 <select v-model="newMbr.radioNumber" class="form-control" rows="3" placeholder="Select radio number...">
-                  <option selected> Select radio number... </option>
+                  <option value="" disabled selected hidden>Choose...</option>
                   <option> 1 </option>
                   <option> 2 </option>
                   <option> 3 </option>
